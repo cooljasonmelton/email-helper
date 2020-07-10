@@ -5,7 +5,7 @@ import './App.css';
 
 //components
 
-function App() {
+const App = () => {
   return (
     <div className="App">
 

@@ -1,15 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 //styling
 import './Navbar.css';
+import { Segment } from 'semantic-ui-react';
 
 //components
+import Login from './Login';
+import Title from './Title'
+
 
 const Navbar = () => {
-  return (
-    <div className="Navbar">
+  const [loggedIn, logUserIn] = useState(false)
 
-    </div>
+  
+  return (
+    <Segment className="Navbar">
+      <Title/>
+
+      {loggedIn ?
+        null
+        : <Login/>}
+
+    </Segment>
   );
 }
 

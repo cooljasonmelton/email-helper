@@ -7,7 +7,7 @@ import { Segment, TextArea } from 'semantic-ui-react'
 //components
 
 const Template = () => {
-  const [text, setText] = useState("")
+  const [text, setText] = useState("sample text")
   
   return (
     <Segment className="Template email-item">

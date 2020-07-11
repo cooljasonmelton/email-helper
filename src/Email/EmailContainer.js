@@ -12,7 +12,7 @@ import Contacts from './Contacts';
 const EmailContainer = () => {
   
   return (
-    <Segment className="EmailContainer" style={{height: '80%'}}>
+    <Segment className="EmailContainer" style={{height: '85%'}}>
       <Grid style={{height: '100%'}} columns={3}>
         <Grid.Row stretched>
           <Grid.Column>

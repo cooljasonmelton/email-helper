@@ -8,7 +8,7 @@ const TemplateMenu = () => {
     const [searchItem, setSearchItem] = useState('')
 
     return (
-        <Segment className="TemplateMenu email-item">
+        <Segment className="TemplateMenu email-item center-flex-box">
             <div className="template-menu-options">
                 <Button >+</Button>
                 <Input placeholder='Search...'
@@ -17,12 +17,9 @@ const TemplateMenu = () => {
             </div>
 
             {/* SAMPLE OF WHAT TEMPLATES WILL LOOK LIKE */}
-            <Segment> 
-                <Segment className="template-item" onClick={null}>
-                    <h3>name of template</h3>
-                    <p>sample text sample text sample text...</p>               
-                    <Button size="mini" >x</Button>
-                </Segment>
+            <Segment className="template-item" onClick={null}>
+                <h3>  name of template</h3>
+                <p>sample text sample text sample text...</p>               
             </Segment>
         </Segment>
     );

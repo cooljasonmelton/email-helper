@@ -1,21 +1,34 @@
-EmailContainer {
+.EmailContainer {
     width: 100%;
     height: 80%;
 }
 
-.TemplateMenu {
+.center-flex-box {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: space-around;
 }
 
 .template-menu-options {
     display: flex;
 }
 
+.template-subject{
+    width: 100%;
+    height: 10%;
+    border-color: #dededf;
+    padding: 1em;
+    margin: 0.5em 0;
+}
+
 .template-text{
     width: 100%;
-    height: 100%;
-    border: none;
+    height: 70%;
+    /* border: none; */
+    border-color: #dededf;
     padding: 1em;
+    margin: 0.5em 0;
+}
+div.ui.segment.template-item{
+    width: 100%;
 }

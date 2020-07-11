@@ -8,7 +8,7 @@ const TemplateMenu = () => {
     const [searchItem, setSearchItem] = useState('')
 
     return (
-        <Segment className="TemplateMenu">
+        <Segment className="TemplateMenu email-item">
             <div className="template-menu-options">
                 <Button >+</Button>
                 <Input placeholder='Search...'

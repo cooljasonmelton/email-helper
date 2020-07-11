@@ -4,14 +4,14 @@ import React from 'react';
 import './Email.css';
 import { Input, Segment } from 'semantic-ui-react'
 
-
 //components
 
 
 const Contacts = () => {
   
   return (
-    <Segment className="Contacts">
+    <Segment className="Contacts email-item">
+      <Input />
 
 
     </Segment>

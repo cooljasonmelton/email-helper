@@ -2,7 +2,7 @@ import React from 'react';
 
 //styling
 import './Email.css';
-import { Segment } from 'semantic-ui-react'
+import { Segment, TextArea } from 'semantic-ui-react'
 
 
 //components
@@ -11,7 +11,8 @@ import { Segment } from 'semantic-ui-react'
 const Template = () => {
   
   return (
-    <Segment className="Template">
+    <Segment className="Template email-item">
+      <TextArea className="template-text" />
 
 
     </Segment>

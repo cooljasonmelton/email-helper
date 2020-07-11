@@ -9,19 +9,13 @@ import TemplateMenu from './TemplateMenu';
 import Template from './Template';
 import Contacts from './Contacts';
 
-
-
-
 const EmailContainer = () => {
   
   return (
     <Segment className="EmailContainer">
-        <TemplateMenu/>
-        <Template/>
-        <Contacts/>
-
-
-
+      <TemplateMenu/>
+      <Template/>
+      <Contacts/>
     </Segment>
   );
 }

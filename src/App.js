@@ -5,6 +5,7 @@ import './App.css';
 
 //components
 import Navbar from './Navbar/Navbar'
+import EmailContainer from './Email/EmailContainer'
 
 
 const App = () => {
@@ -12,6 +13,7 @@ const App = () => {
   return (
     <div className="App">
       <Navbar/>
+      <EmailContainer/>
 
     </div>
   );

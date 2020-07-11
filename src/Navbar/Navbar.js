@@ -10,17 +10,11 @@ import Title from './Title'
 
 
 const Navbar = () => {
-  const [loggedIn, logUserIn] = useState(false)
-
   
   return (
     <Segment className="Navbar">
       <Title/>
-
-      {loggedIn ?
-        null
-        : <Login/>}
-
+      <Login/>
     </Segment>
   );
 }

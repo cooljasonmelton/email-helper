@@ -1,0 +1,34 @@
+.EmailContainer {
+    width: 100%;
+    height: 80%;
+}
+
+.center-flex-box {
+    display: flex;
+    flex-direction: column;
+    align-items: space-around;
+}
+
+.template-menu-options {
+    display: flex;
+}
+
+.template-subject{
+    width: 100%;
+    height: 10%;
+    border-color: #dededf;
+    padding: 1em;
+    margin: 0.5em 0;
+}
+
+.template-text{
+    width: 100%;
+    height: 70%;
+    /* border: none; */
+    border-color: #dededf;
+    padding: 1em;
+    margin: 0.5em 0;
+}
+div.ui.segment.template-item{
+    width: 100%;
+}

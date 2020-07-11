@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 // styling
 import './index.css';
+import 'semantic-ui-css/semantic.min.css';
 
 // components 
 import App from './App';

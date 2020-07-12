@@ -1,6 +1,6 @@
-.EmailContainer {
-    width: 100%;
-    height: 80%;
+div.ui.segment.EmailContainer {
+
+    background-color: #F3F6F7;
 }
 
 .center-flex-box {

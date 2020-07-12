@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import './Contact.css';
 import './Email.css';
 
-import { Input, Segment, List, ListItem } from 'semantic-ui-react'
+import { Input, Segment } from 'semantic-ui-react'
 
 //components
 

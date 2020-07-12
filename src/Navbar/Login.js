@@ -1,21 +1,41 @@
 import React, { useState } from 'react';
 
+//redux
+import { connect } from 'react-redux'
+
 //styling
 import './Navbar.css';
-import { Form, Input } from 'semantic-ui-react'
+import { Form, Input, Button } from 'semantic-ui-react'
 
-//components
+const Login = props => {
+  const [email, setEmail] = useState('jason.melton2@gmail.com')
+  const [password, setPassword] = useState('jason')
 
-const Login = () => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-
-
+  const logUserIn = () => {
+    const reqObj = {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json' 
+      },
+      body: JSON.stringify({ email, password })
+    }
+    fetch('http://localhost:3000/login', reqObj)
+    .then(r=>r.json())
+    .then(userData=> {
+      props.login(userData)
+    })
+  }
+  
   return (
-    <div className="Login">
+    <div className="Login" 
+    // hide if logged in
+    style={props.state.login.id ? 
+            {display: "none"} 
+              : {display: "block"}}> 
+
         <Form>
           <Form.Group>
-          <Form.Field
+            <Form.Field
               control={Input}
               label='Email'
               placeholder='Email'
@@ -30,11 +50,29 @@ const Login = () => {
               onChange={e => setPassword(e.target.value)}
               value={password}
             />
+            <Form.Button className='login-button'
+              onClick={logUserIn}>
+              Login
+            </Form.Button>
           </Form.Group>
         </Form>
     </div>
   );
 }
 
-export default Login;
+const mapDispatchToProps = dispatch => {
+  return {
+    login: formData => dispatch({ type: 'LOGIN_USER', payload: formData })
+  };
+};
+
+const mapStateToProps = state => {
+  return {
+    state
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
+
+
 

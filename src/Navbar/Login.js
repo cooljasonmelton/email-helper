@@ -7,14 +7,20 @@ import { Form, Input, Button } from 'semantic-ui-react'
 //components
 
 const Login = () => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('jason.melton2@gmail.com')
+  const [password, setPassword] = useState('jason')
 
   const logUserIn = () => {
-    console.log(email, password)
-    fetch()
-
-
+    const reqObj = {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json' 
+      },
+      body: JSON.stringify({ email, password })
+    }
+    fetch('http://localhost:3000/login', reqObj)
+    .then(r=>r.json())
+    .then(d=>console.log(d))
   }
 
   return (
@@ -36,12 +42,12 @@ const Login = () => {
               onChange={e => setPassword(e.target.value)}
               value={password}
             />
+            <Form.Button className='login-button'
+              onClick={logUserIn}>
+              Login
+            </Form.Button>
           </Form.Group>
         </Form>
-        <Button className='login-button'
-          onClick={logUserIn}>
-          Login
-        </Button>
     </div>
   );
 }

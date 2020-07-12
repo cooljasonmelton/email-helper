@@ -9,12 +9,13 @@
     font-weight: bold;
 }
 
-.Login{
-    display: flex; 
+
+div.field.login-button{
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
+div.field.login-button > button{
+    margin-top: 1.5em;
 
-.button.ui.button.login-button{
-    height: 50%;
-    margin: 0.5em 1em 0;
 }

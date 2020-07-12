@@ -9,10 +9,6 @@
 
 
 ### To Do List (looking for MVP)
--user login
-* login fetches user data
-* store data in redux store
-* login success hides login form
 
 -templates
 * CRUD templates
@@ -27,3 +23,6 @@
 
 -send email
 * research how to send emails
+
+LATER:
+* user full CRUD

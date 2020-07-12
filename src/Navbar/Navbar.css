@@ -8,3 +8,13 @@
 .Title{
     font-weight: bold;
 }
+
+.Login{
+    display: flex; 
+    align-items: center;
+}
+
+.button.ui.button.login-button{
+    height: 50%;
+    margin: 0.5em 1em 0;
+}

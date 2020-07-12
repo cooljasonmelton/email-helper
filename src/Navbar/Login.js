@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 //styling
 import './Navbar.css';
-import { Form, Input } from 'semantic-ui-react'
+import { Form, Input, Button } from 'semantic-ui-react'
 
 //components
 
@@ -10,12 +10,18 @@ const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  const logUserIn = () => {
+    console.log(email, password)
+    fetch()
+
+
+  }
 
   return (
     <div className="Login">
         <Form>
           <Form.Group>
-          <Form.Field
+            <Form.Field
               control={Input}
               label='Email'
               placeholder='Email'
@@ -32,6 +38,10 @@ const Login = () => {
             />
           </Form.Group>
         </Form>
+        <Button className='login-button'
+          onClick={logUserIn}>
+          Login
+        </Button>
     </div>
   );
 }

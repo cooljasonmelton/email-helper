@@ -1,3 +1,5 @@
+<a href="https://github.com/cooljasonmelton/email-automater-backend"> back end </a>
+
 ## goals
 
 * login with email
@@ -6,6 +8,7 @@
 * sort, filter, select contacts
 * search templates
 * send email
+
 
 
 ### To Do List (looking for MVP)

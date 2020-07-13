@@ -5,9 +5,10 @@ import { connect } from 'react-redux'
 
 //styling
 import './Navbar.css';
-import { Form, Input } from 'semantic-ui-react'
+import { Form, Input, Button } from 'semantic-ui-react'
 
 const Login = props => {
+  const [signUp, setSignUp] = useState(false)
   const [email, setEmail] = useState('jason.melton2@gmail.com')
   const [password, setPassword] = useState('jason')
 
@@ -32,7 +33,6 @@ const Login = props => {
     style={props.state.login.id ? 
             {display: "none"} 
               : {display: "block"}}> 
-
         <Form>
           <Form.Group>
             <Form.Field
@@ -53,6 +53,10 @@ const Login = props => {
             <Form.Button className='login-button'
               onClick={logUserIn}>
               Login
+            </Form.Button>
+            <Form.Button className='login-button'
+              onClick={() => setSignUp(!signUp)}>
+              Sign Up
             </Form.Button>
           </Form.Group>
         </Form>

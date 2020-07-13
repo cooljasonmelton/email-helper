@@ -9,7 +9,11 @@ div.ui.segment.EmailContainer {
 }
 
 .template-menu-options {
+    width: 100%;
     display: flex;
+    padding-bottom: 1em;
+    align-items: space-between;
+
 }
 
 .template-subject{

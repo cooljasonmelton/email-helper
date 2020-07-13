@@ -29,11 +29,7 @@ const Contacts = () => {
     <Segment className="Contacts email-item">
       <div className="contact-options">
         {/* sort options */}
-        <Button.Group>
-          <Button>N</Button>
-          <Button>E</Button>
-        </Button.Group>
-
+        <Button>+</Button>
         {/* search input  */}
         <Input placeholder="Search..."
           onChange={e => setSearchItem(e.target.value)}

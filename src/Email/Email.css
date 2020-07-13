@@ -1,3 +1,7 @@
+h3 {
+    text-align: center;
+}
+
 div.ui.segment.EmailContainer {
     background-color: #F3F6F7;
 }
@@ -12,7 +16,6 @@ div.ui.segment.EmailContainer {
     width: 100%;
     display: flex;
     padding-bottom: 1em;
-    align-items: space-between;
 
 }
 
@@ -34,7 +37,6 @@ div.ui.segment.EmailContainer {
 
 div.contact-options{
     display: flex;
-    justify-content: space-between;
     padding-bottom: 1em;
 }
 

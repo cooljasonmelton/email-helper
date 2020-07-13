@@ -12,6 +12,7 @@ const Template = () => {
   
   return (
     <Segment className="Template email-item center-flex-box">
+      <Button>Send</Button>
       <h3>name of template</h3>
       <TextArea className="template-subject" 
         onChange={e => setSubject(e.target.value)}

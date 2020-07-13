@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 //styling
 import './Email.css';
-import { Segment, TextArea, Button } from 'semantic-ui-react'
+import { Segment, TextArea, Button, Icon } from 'semantic-ui-react'
 
 //components
 
@@ -21,7 +21,12 @@ const Template = () => {
   return (
     <Segment className="Template email-item center-flex-box">
 
-      <Button onClick={sendEmail}>Send</Button>
+      <Button animated onClick={sendEmail}>
+        <Button.Content visible>Send</Button.Content>
+        <Button.Content hidden>
+          <Icon name='arrow right' />
+        </Button.Content>
+      </Button>
 
       <h3>name of template</h3>
 

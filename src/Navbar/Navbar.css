@@ -19,3 +19,7 @@ div.field.login-button > button{
     margin-top: 1.5em;
 
 }
+
+div.Login{
+    display: flex
+}

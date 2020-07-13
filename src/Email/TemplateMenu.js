@@ -10,17 +10,19 @@ const TemplateMenu = () => {
     return (
         <Segment className="TemplateMenu email-item center-flex-box">
             <div className="template-menu-options">
-                <Button >+</Button>
+                <Button>+</Button>
                 <Input placeholder='Search...'
                     onChange={e => setSearchItem(e.target.value)}
                     value={searchItem}/>
             </div>
 
             {/* SAMPLE OF WHAT TEMPLATES WILL LOOK LIKE */}
-            <Segment className="template-item" onClick={null}>
-                <h3>  name of template</h3>
-                <p>sample text sample text sample text...</p>               
-            </Segment>
+            <div className="no-overflow">
+                <Segment className="template-item" onClick={null}>
+                    <h3> name of template</h3>
+                    <p>sample text sample text sample text...</p>               
+                </Segment>
+            </div>
         </Segment>
     );
 }

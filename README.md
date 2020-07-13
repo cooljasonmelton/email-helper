@@ -7,11 +7,14 @@
 * create, read, update, delete contacts
 * sort, filter, select contacts
 * search templates
-* send email
+* send email template to selected contacts
 
 
 
 ### To Do List (looking for MVP)
+
+-send email
+* research how to send emails from front end
 
 -templates
 * CRUD templates
@@ -23,9 +26,6 @@
 * organize contact div, set up features
 * CRUD contacts
 * checkbox to select contacts
-
--send email
-* research how to send emails
 
 LATER:
 * user full CRUD

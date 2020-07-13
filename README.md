@@ -13,9 +13,6 @@
 
 ### To Do List (looking for MVP)
 
--send email
-* research how to send emails from front end
-
 -templates
 * CRUD templates
 * select template add to redux store as selected
@@ -27,5 +24,6 @@
 * CRUD contacts
 * checkbox to select contacts
 
-LATER:
+STRETCH:
 * user full CRUD
+* checkbox for bcc, cc on contacts

@@ -26,4 +26,4 @@
 
 STRETCH:
 * user full CRUD
-* checkbox for bcc, cc on contacts
+* checkbox for bcc, cc on contacts resource: https://css-tricks.com/all-about-mailto-links/

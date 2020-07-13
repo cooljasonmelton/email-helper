@@ -5,7 +5,7 @@
 * create, read, update, delete contacts
 * sort, filter, select contacts
 * search templates
-* send email
+* send email template to selected contacts
 
 
 ### To Do List (looking for MVP)

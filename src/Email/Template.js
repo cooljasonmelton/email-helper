@@ -31,7 +31,7 @@ const Template = () => {
         <Icon name='arrow right' />
         </Button.Content>
       </Button>
-      <Divider/>
+      <br/>
 
       {/* DECIDES NEW OR EDIT TEMPLATE */}
       {createNewTemplate ?

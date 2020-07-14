@@ -13,8 +13,20 @@
 
 ### To Do List (looking for MVP)
 
+-make new templates:
+1. plus button gives blank new template form
+2. template creates onblur
+3. redux has 'current template'
+4. once template creates, pushes to current template edit
+5. current template saves on blur
+6. selecting from library of templates changes 'current template' to edit
+
+
+
+
 -templates
 * CRUD templates
+--delete button on library item
 * select template add to redux store as selected
 * display selected template in center div
 * new template displays create form in center div

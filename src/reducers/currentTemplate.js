@@ -1,6 +1,6 @@
-export default function login(state = { id: ""}, action) {
+export default function currentTemplate(state = { template: ""}, action) {
     switch (action.type) {
-        case 'LOGIN_USER':
+        case 'SET_CURRENT_TEMPLATE':
             return action.payload
         default:
             return state

@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 //styling
 import './Email.css';
 import { Divider, TextArea, Input, Form } from 'semantic-ui-react'
+import login from '../reducers/login';
 
 const NewTemplate = props => {
     const [name, setName] = useState('')
@@ -13,8 +14,8 @@ const NewTemplate = props => {
     const [body, setBody] = useState('')
 
     const saveNewTemplate = () => {
-        console.log(props.state)
-        if (!props.state.login.id) return
+        const {login, currentTemplate, state} = props
+        if (!state.login.id) return
 
         const reqObj = {
             method: "POST",
@@ -22,16 +23,20 @@ const NewTemplate = props => {
               'Content-Type': 'application/json' 
             },
             body: JSON.stringify({
-                userId: props.state.login.id,
+                userId: state.login.id,
                 name, 
                 subject, 
                 body 
             })
         }
+
         
         fetch('http://localhost:3000/templates', reqObj)
         .then(r=>r.json())
-        .then(data=>console.log(data));
+        .then(userData=> {
+            login(userData)
+            currentTemplate(userData.templates[userData.templates.length-1])
+        });
     }
 
     return (
@@ -61,7 +66,8 @@ const NewTemplate = props => {
 
 const mapDispatchToProps = dispatch => {
     return {
-      login: formData => dispatch({ type: 'LOGIN_USER', payload: formData })
+      login: userData => dispatch({ type: 'LOGIN_USER', payload: userData }), 
+      currentTemplate: templateData => dispatch({type:'SET_CURRENT_TEMPLATE', payload: templateData})
     };
 };
   

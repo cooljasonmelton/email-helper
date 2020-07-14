@@ -16,23 +16,22 @@ div.ui.segment.EmailContainer {
     width: 100%;
     display: flex;
     padding-bottom: 1em;
-
 }
 
 .template-subject{
-    width: 100%;
-    height: 10%;
-    border-color: #dededf;
     padding: 1em;
-    margin: 0.5em 0;
 }
 
-.template-text{
+.ui.form.template-text{
     width: 100%;
     height: 70%;
     border-color: #dededf;
-    padding: 1em;
     margin: 0.5em 0;
+}
+
+textarea.template-text{
+    height: 100%;
+    width: 100%
 }
 
 div.contact-options{

@@ -15,7 +15,7 @@ const Contacts = () => {
   const TEST = () => {
     const testArr = []
     for (let i=0; i<10; i++){
-      testArr.push(<Segment>
+      testArr.push(<Segment key={i}>
         <h3>Jason Melton</h3>
         <p>jason.melton2@gmail.com</p>
       </Segment>)
@@ -28,19 +28,21 @@ const Contacts = () => {
   return (
     <Segment className="Contacts email-item">
       <div className="contact-options">
+
         {/* sort options */}
         <Button>+</Button>
+
         {/* search input  */}
         <Input placeholder="Search..."
           onChange={e => setSearchItem(e.target.value)}
           value={searchItem}/>
       </div>
-      {/* contact list */}
 
+      {/* contact list */}
       <div className="no-overflow">
         <Segment>
-          <h3>Jason Melton</h3>
-          <p>jason.melton2@gmail.com</p>
+          <h3>Dave</h3>
+          <p>Dave@gmail.com</p>
         </Segment>
 
         {TEST()}
@@ -50,9 +52,5 @@ const Contacts = () => {
     </Segment>
   );
 }
-
-// top: sort, search
-// list of contacts, edit, delete
-// bottom: add, select all
 
 export default Contacts;

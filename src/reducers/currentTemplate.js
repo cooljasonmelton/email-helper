@@ -5,5 +5,4 @@ export default function currentTemplate(state = { template: ""}, action) {
         default:
             return state
     }
-
 }

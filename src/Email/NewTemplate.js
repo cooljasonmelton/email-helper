@@ -6,12 +6,14 @@ import { connect } from 'react-redux'
 //styling
 import './Email.css';
 import { Divider, TextArea, Input, Form } from 'semantic-ui-react'
-import login from '../reducers/login';
 
 const NewTemplate = props => {
     const [name, setName] = useState('')
     const [subject, setSubject] = useState('')
     const [body, setBody] = useState('')
+
+
+    // saves new template to back end and sets as currentTemplate in store
 
     const saveNewTemplate = () => {
         const {login, currentTemplate, state} = props
@@ -29,7 +31,6 @@ const NewTemplate = props => {
                 body 
             })
         }
-
         
         fetch('http://localhost:3000/templates', reqObj)
         .then(r=>r.json())

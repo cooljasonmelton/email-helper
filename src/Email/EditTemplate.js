@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 //styling
 import './Email.css';
-import { Segment, Form, Input } from 'semantic-ui-react'
+import {  } from 'semantic-ui-react'
 
 const EditTemplate = () => {
 

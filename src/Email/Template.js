@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 
+//redux
+import { connect } from 'react-redux'
+
 //styling
 import './Email.css';
 import { Segment, Divider, Button, Icon } from 'semantic-ui-react'
@@ -8,11 +11,11 @@ import { Segment, Divider, Button, Icon } from 'semantic-ui-react'
 import NewTemplate from './NewTemplate'
 import EditTemplate from './EditTemplate'
 
-const Template = () => {
+const Template = props => {
+  console.log(props.state.currentTemplate)
   const [contacts, setContacts] = useState(['jason', 'paul', 'rachel'])
   const [subject, setSubject] = useState("sample subject")
   const [body, setBody] = useState("sample body")
-  const [createNewTemplate, setTemplate] = useState(true)
 
   // currently grabs sample state above
   // change this to later use redux to get selected contacts & template
@@ -34,9 +37,9 @@ const Template = () => {
       <br/>
 
       {/* DECIDES NEW OR EDIT TEMPLATE */}
-      {createNewTemplate ?
-        <NewTemplate/>
-          : <EditTemplate/>
+      {props.state.currentTemplate.id ?
+        <EditTemplate/>
+          : <NewTemplate/>
       }
 
       {/* DELETE BUTTON */}
@@ -46,4 +49,10 @@ const Template = () => {
   );
 }
 
-export default Template;
+const mapStateToProps = state => {
+  return {
+    state
+  }
+}
+
+export default connect(mapStateToProps)(Template);

@@ -12,17 +12,12 @@ import NewTemplate from './NewTemplate'
 import EditTemplate from './EditTemplate'
 
 const Template = props => {
-  console.log(props.state.currentTemplate)
-  const [contacts, setContacts] = useState(['jason', 'paul', 'rachel'])
-  const [subject, setSubject] = useState("sample subject")
-  const [body, setBody] = useState("sample body")
-
   // currently grabs sample state above
   // change this to later use redux to get selected contacts & template
-  const sendEmail = () =>{
-    const mailtoURL = `mailto:${contacts.join(",")}?subject=${subject}&body=${body}`
-    window.open(mailtoURL, "_blank") 
-  }
+  // const sendEmail = () =>{
+  //   const mailtoURL = `mailto:${contacts.join(",")}?subject=${subject}&body=${body}`
+  //   window.open(mailtoURL, "_blank") 
+  // }
   
   return (
     <Segment className="Template email-item center-flex-box">
@@ -34,6 +29,7 @@ const Template = props => {
         <Icon name='arrow right' />
         </Button.Content>
       </Button>
+      
       <br/>
 
       {/* DECIDES NEW OR EDIT TEMPLATE */}

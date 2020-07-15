@@ -10,8 +10,6 @@ import { Segment, Button, Input } from 'semantic-ui-react'
 const TemplateMenu = props => {
     const [searchItem, setSearchItem] = useState('')
 
-    console.log(props.currentTemplate)
-
     const {templates} = props.state.login
 
     return (

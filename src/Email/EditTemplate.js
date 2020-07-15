@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 
 //redux
 import { connect } from 'react-redux'
@@ -8,17 +8,21 @@ import './Email.css';
 import { Divider, TextArea, Input, Form } from 'semantic-ui-react'
 
 const EditTemplate = props => {
-    const {currentTemplate} = props.state
-    const [name, setName] = useState(currentTemplate.name)
-    const [subject, setSubject] = useState(currentTemplate.subject)
-    const [body, setBody] = useState(currentTemplate.body)
+    console.log(props)
+    const { templateData } = props
+    const [name, setName] = useState(templateData.name)
+    const [subject, setSubject] = useState(templateData.subject)
+    const [body, setBody] = useState(templateData.body)
 
-
-    // saves new template to back end and sets as currentTemplate in store
+    useEffect(() => {
+        setName(templateData.name)
+        setSubject(templateData.subject)
+        setBody(templateData.name)
+    });
 
     const saveEditTemplate = () => {
-        const {login, state} = props
-        if (!state.login.id) return
+        const {userData, templateData, login} = props
+        if (!templateData.id) return
 
         const reqObj = {
             method: "PATCH",
@@ -26,14 +30,14 @@ const EditTemplate = props => {
               'Content-Type': 'application/json' 
             },
             body: JSON.stringify({
-                userId: state.login.id,
+                userId: userData.id,
                 name, 
                 subject, 
                 body 
             })
         }
         
-        fetch(`http://localhost:3000/templates/${state.currentTemplate.id}`, reqObj)
+        fetch(`http://localhost:3000/templates/${templateData.id}`, reqObj)
         .then(r=>r.json())
         .then(userData=> {
             login(userData)
@@ -74,7 +78,8 @@ const mapDispatchToProps = dispatch => {
   
 const mapStateToProps = state => {
     return {
-        state
+        templateData: state.currentTemplate,
+        userData: state.login
     }
 }
   

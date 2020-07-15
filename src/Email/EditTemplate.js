@@ -17,7 +17,7 @@ const EditTemplate = props => {
     // saves new template to back end and sets as currentTemplate in store
 
     const saveEditTemplate = () => {
-        const {login, currentTemplate, state} = props
+        const {login, state} = props
         if (!state.login.id) return
 
         const reqObj = {

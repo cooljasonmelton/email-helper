@@ -1,11 +1,18 @@
 import React, {useState} from 'react';
 
+//redux
+import { connect } from 'react-redux'
+
 //styling
 import './Email.css';
 import { Segment, Button, Input } from 'semantic-ui-react'
 
-const TemplateMenu = () => {
+const TemplateMenu = props => {
     const [searchItem, setSearchItem] = useState('')
+
+    console.log(props.currentTemplate)
+
+    const {templates} = props.state.login
 
     return (
         <Segment className="TemplateMenu email-item center-flex-box">
@@ -16,15 +23,35 @@ const TemplateMenu = () => {
                     value={searchItem}/>
             </div>
 
-            {/* SAMPLE OF WHAT TEMPLATES WILL LOOK LIKE */}
             <div className="no-overflow">
-                <Segment className="template-item" onClick={null}>
-                    <h3> name of template</h3>
-                    <p>sample text sample text sample text...</p>               
-                </Segment>
+
+                {/* Map thru store of user templates and display */}
+                {templates && templates.map(template => {
+                    return (
+                        <Segment className="template-item" onClick={()=> props.currentTemplate(template)}>
+                            <h3>{template.name}</h3>
+                            <p>{template.subject}</p>
+                            <p>{template.body.substring(0,50)}</p>               
+                        </Segment>
+                    )})
+                }   
+
             </div>
         </Segment>
     );
 }
 
-export default TemplateMenu;
+const mapStateToProps = state => {
+    return {
+      state
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+      currentTemplate: templateData => dispatch({type:'SET_CURRENT_TEMPLATE', payload: templateData})
+    };
+};
+
+  
+export default connect(mapStateToProps, mapDispatchToProps)(TemplateMenu);

@@ -10,7 +10,7 @@ import { Segment, Button, Input } from 'semantic-ui-react'
 const TemplateMenu = props => {
     const [searchItem, setSearchItem] = useState('')
 
-    console.log(props.state.login.templates)
+    console.log(props.currentTemplate)
 
     const {templates} = props.state.login
 
@@ -23,20 +23,18 @@ const TemplateMenu = props => {
                     value={searchItem}/>
             </div>
 
-            {/* SAMPLE OF WHAT TEMPLATES WILL LOOK LIKE */}
             <div className="no-overflow">
 
-            {templates && templates.map(template => {
-                return (
-                    <Segment className="template-item" onClick={null}>
-                        <h3>{template.name}</h3>
-                        <p>{template.subject}</p>
-                        <p>{template.body.substring(0,50)}</p>               
-                    </Segment>
-                )})
-            
-            }
-            
+                {/* Map thru store of user templates and display */}
+                {templates && templates.map(template => {
+                    return (
+                        <Segment className="template-item" onClick={()=> props.currentTemplate(template)}>
+                            <h3>{template.name}</h3>
+                            <p>{template.subject}</p>
+                            <p>{template.body.substring(0,50)}</p>               
+                        </Segment>
+                    )})
+                }   
 
             </div>
         </Segment>
@@ -49,5 +47,11 @@ const mapStateToProps = state => {
     }
 }
 
+const mapDispatchToProps = dispatch => {
+    return {
+      currentTemplate: templateData => dispatch({type:'SET_CURRENT_TEMPLATE', payload: templateData})
+    };
+};
+
   
-export default connect(mapStateToProps)(TemplateMenu);
+export default connect(mapStateToProps, mapDispatchToProps)(TemplateMenu);

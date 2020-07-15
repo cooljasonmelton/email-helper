@@ -35,8 +35,11 @@ const NewTemplate = props => {
         fetch('http://localhost:3000/templates', reqObj)
         .then(r=>r.json())
         .then(userData=> {
+            // redo login to include new template in store
             login(userData)
-            currentTemplate(userData.templates[userData.templates.length-1])
+
+            // grab last template in array and make current template
+            currentTemplate(userData.templates[userData.templates.length-1]) 
         });
     }
 

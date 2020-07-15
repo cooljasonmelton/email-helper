@@ -1,6 +1,6 @@
 <a href="https://github.com/cooljasonmelton/email-automater-backend"> back end </a>
 
-## goals
+## feature goals
 
 * login with email
 * create, read, update, delete email templates
@@ -10,22 +10,14 @@
 * send email template to selected contacts
 
 
-
-### To Do List (looking for MVP)
+### To Do List (to get MVP)
 
 -make new templates:
 1. plus button gives blank new template form
-2. template creates onblur
-3. redux has 'current template'
-4. once template creates, pushes to current template edit
-5. current template saves on blur
 6. selecting from library of templates changes 'current template' to edit
 
-
-
-
 -templates
-* CRUD templates
+* -R-D templates
 --delete button on library item
 * select template add to redux store as selected
 * display selected template in center div
@@ -36,6 +28,7 @@
 * CRUD contacts
 * checkbox to select contacts
 
-STRETCH:
+### STRETCH:
 * user full CRUD
+* authentication
 * checkbox for bcc, cc on contacts resource: https://css-tricks.com/all-about-mailto-links/

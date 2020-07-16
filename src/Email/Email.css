@@ -45,6 +45,9 @@ div.no-overflow{
 }
 
 div.ui.segment.template-item:hover{
-    cursor: pointer;
+    background-color: #F3F6F7;
 }
 
+i.delete.icon.delete-button{
+    cursor: pointer;
+}

@@ -38,7 +38,6 @@ const Template = props => {
 
       {/* DELETE BUTTON */}
       <Divider/>
-      <Button>Save</Button>
     </Segment>
   );
 }

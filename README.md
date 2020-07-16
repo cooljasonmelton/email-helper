@@ -1,5 +1,9 @@
 <a href="https://github.com/cooljasonmelton/email-automater-backend"> back end </a>
 
+
+## features
+* create, read, and update email templates
+
 ## feature goals
 
 * login with email
@@ -12,12 +16,14 @@
 
 ### To Do List (to get MVP)
 
--make new templates:
-1. plus button gives blank new template form
-6. selecting from library of templates changes 'current template' to edit
+NEXT: 
+* template plus button gives blank new template form
+* template items in template menu have delete functionality
+* refactor and document edit template
 
+GOALS:
 -templates
-* -R-D templates
+* ---D templates (CRUD)
 --delete button on library item
 * select template add to redux store as selected
 * display selected template in center div

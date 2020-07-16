@@ -15,7 +15,12 @@ const TemplateMenu = props => {
     return (
         <Segment className="TemplateMenu email-item center-flex-box">
             <div className="template-menu-options">
-                <Button>+</Button>
+
+                {/* button clear template causing new template to render */}
+                <Button onClick={() => props.currentTemplate({ id: ""})}>
+                    +
+                </Button>
+                
                 <Input placeholder='Search...'
                     onChange={e => setSearchItem(e.target.value)}
                     value={searchItem}/>

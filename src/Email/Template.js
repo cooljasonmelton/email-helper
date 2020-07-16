@@ -12,12 +12,10 @@ import NewTemplate from './NewTemplate'
 import EditTemplate from './EditTemplate'
 
 const Template = props => {
-  // currently grabs sample state above
-  // change this to later use redux to get selected contacts & template
   // const sendEmail = () =>{
   //   const mailtoURL = `mailto:${contacts.join(",")}?subject=${subject}&body=${body}`
   //   window.open(mailtoURL, "_blank") 
-  // }
+  // }  
   
   return (
     <Segment className="Template email-item center-flex-box">
@@ -51,4 +49,10 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(Template);
+const mapDispatchToProps = dispatch => {
+  return {
+    currentTemplate: templateData => dispatch({type:'SET_CURRENT_TEMPLATE', payload: templateData})
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Template);

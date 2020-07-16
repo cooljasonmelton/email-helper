@@ -13,6 +13,8 @@ const EditTemplate = props => {
     const [name, setName] = useState(templateData.name)
     const [subject, setSubject] = useState(templateData.subject)
     const [body, setBody] = useState(templateData.body)
+
+    console.log(id)
     
     useEffect(() => {
         if (id === templateData.id) return

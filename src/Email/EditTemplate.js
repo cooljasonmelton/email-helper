@@ -5,23 +5,27 @@ import { connect } from 'react-redux'
 
 //styling
 import './Email.css';
-import { Divider, TextArea, Input, Form } from 'semantic-ui-react'
+import { Divider, TextArea, Input, Form, Button } from 'semantic-ui-react'
 
 const EditTemplate = props => {
-    console.log(props)
     const { templateData } = props
+    const [id, setId] = useState(templateData.id)
     const [name, setName] = useState(templateData.name)
     const [subject, setSubject] = useState(templateData.subject)
     const [body, setBody] = useState(templateData.body)
 
+    console.log(id)
+    
     useEffect(() => {
+        if (id === templateData.id) return
+        setId(templateData.id)
         setName(templateData.name)
         setSubject(templateData.subject)
         setBody(templateData.name)
     });
 
     const saveEditTemplate = () => {
-        const {userData, templateData, login} = props
+        const {userData, templateData, login, currentTemplate} = props
         if (!templateData.id) return
 
         const reqObj = {

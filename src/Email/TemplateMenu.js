@@ -5,17 +5,31 @@ import { connect } from 'react-redux'
 
 //styling
 import './Email.css';
-import { Segment, Button, Input } from 'semantic-ui-react'
+import { Segment, Button, Input, Icon } from 'semantic-ui-react'
 
 const TemplateMenu = props => {
     const [searchItem, setSearchItem] = useState('')
 
     const {templates} = props.state.login
 
+    const handleDelete = tempId => {
+        fetch("http://localhost:3000/templates/" + tempId, {method: 'DELETE'})
+        .then(r=>r.json())
+        .then(userData=>{
+            props.login(userData)
+            props.currentTemplate({id: ""})
+        })
+    }
+
     return (
         <Segment className="TemplateMenu email-item center-flex-box">
             <div className="template-menu-options">
-                <Button>+</Button>
+
+                {/* button clear template causing new template to render */}
+                <Button onClick={() => props.currentTemplate({ id: ""})}>
+                    +
+                </Button>
+
                 <Input placeholder='Search...'
                     onChange={e => setSearchItem(e.target.value)}
                     value={searchItem}/>
@@ -27,11 +41,12 @@ const TemplateMenu = props => {
                 {templates && templates.map(template => {
                     return (
                         <Segment className="template-item" onClick={()=> props.currentTemplate(template)}>
+                            <Icon className="delete-button" onClick={() => handleDelete(template.id)} name="delete"/>
                             <h3>{template.name}</h3>
                             <p>{template.subject}</p>
-                            <p>{template.body.substring(0,50)}</p>               
+                            <p>{template.body.substring(0,100)}</p>
                         </Segment>
-                    )})
+                    )}).reverse()
                 }   
 
             </div>
@@ -47,7 +62,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-      currentTemplate: templateData => dispatch({type:'SET_CURRENT_TEMPLATE', payload: templateData})
+        login: userData => dispatch({ type: 'LOGIN_USER', payload: userData }),
+        currentTemplate: templateData => dispatch({type:'SET_CURRENT_TEMPLATE', payload: templateData})
     };
 };
 

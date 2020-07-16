@@ -43,3 +43,8 @@ div.no-overflow{
     max-height: 70vh;
     overflow: scroll;
 }
+
+div.ui.segment.template-item:hover{
+    cursor: pointer;
+}
+

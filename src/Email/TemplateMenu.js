@@ -29,9 +29,10 @@ const TemplateMenu = props => {
                         <Segment className="template-item" onClick={()=> props.currentTemplate(template)}>
                             <h3>{template.name}</h3>
                             <p>{template.subject}</p>
-                            <p>{template.body.substring(0,50)}</p>               
+                            <p>{template.body.substring(0,100)}</p>
+                            <Button style={{width: '100%'}}>Delete</Button>            
                         </Segment>
-                    )})
+                    )}).reverse()
                 }   
 
             </div>

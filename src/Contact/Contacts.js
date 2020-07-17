@@ -7,11 +7,10 @@ import { Input, Segment, Button, Divider } from 'semantic-ui-react'
 //components
 import NewContact from './NewContact';
 
-
 const Contacts = () => {
   const [searchItem, setSearchItem] = useState('')
   const [toggleNewContact, setToggleNewContact] = useState(false)
-  
+ 
   return (
     <Segment className="Contacts email-item">
       {/* OPTIONS */}
@@ -25,13 +24,12 @@ const Contacts = () => {
           value={searchItem}/>
       </div>
 
+      {/* toggle new contact form */}
       {toggleNewContact ? 
         <NewContact setToggleNewContact={setToggleNewContact}/>
-        : ""}
+          : ""}
+
       <Divider/>
-
-
-
 
       {/* contact list */}
       <div className="no-overflow">

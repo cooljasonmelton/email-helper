@@ -14,6 +14,7 @@ const EditTemplate = props => {
     const [subject, setSubject] = useState(templateData.subject)
     const [body, setBody] = useState(templateData.body)
     
+    // if template in template menu is clicked, this updates state
     useEffect(() => {
         if (id === templateData.id) return
         setId(templateData.id)
@@ -44,7 +45,7 @@ const EditTemplate = props => {
         .then(userData => {
             console.log(userData)
             login(userData)
-            // currentTemplate(userData.templates.filter(t => t.id === id))
+
         });
     }
 

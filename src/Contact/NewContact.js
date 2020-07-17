@@ -8,36 +8,33 @@ import './Contact.css';
 import { Divider, TextArea, Input, Form, Button } from 'semantic-ui-react'
 
 const NewContact = props => {
-    const [name, setName] = useState('')
-    const [email, setEmail] = useState('')
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
 
+    // save new contact to back end and update userdata in store
+    const saveNewContact = () => {
+        props.setToggleNewContact();
+        const {login, state} = props;
 
-    // // saves new template to back end and resets userData in store
-    // const saveNewTemplate = () => {
-    //     const {login, currentTemplate, state} = props
-    //     // in case no user is logged in
-    //     if (!state.login.id) return
+        const reqObj = {
+            method: "POST",
+            headers: {
+              'Content-Type': 'application/json' 
+            },
+            body: JSON.stringify({
+                userId: state.login.id,
+                name, 
+                email
+            })
+        };
 
-    //     const reqObj = {
-    //         method: "POST",
-    //         headers: {
-    //           'Content-Type': 'application/json' 
-    //         },
-    //         body: JSON.stringify({
-    //             userId: state.login.id,
-    //             name, 
-    //             subject, 
-    //             body 
-    //         })
-    //     }
-        
-    //     fetch('http://localhost:3000/templates', reqObj)
-    //     .then(r=>r.json())
-    //     .then(userData=> {
-    //         // redo login to include new template in store
-    //         login(userData)
-    //     });
-    // }
+        fetch('http://localhost:3000/contacts', reqObj)
+        .then(r=>r.json())
+        .then(userData=> {
+            // redo login to include new contact in store
+            login(userData)
+        });
+    };
 
     return (
         <>
@@ -47,7 +44,7 @@ const NewContact = props => {
             <Input placeholder="email"
                 onChange={e => setEmail(e.target.value)}
                 value={email}/>
-            <Button onClick={null}>Save</Button>
+            <Button onClick={saveNewContact}>Save</Button>
         </>
     );
 }

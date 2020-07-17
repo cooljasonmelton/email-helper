@@ -13,10 +13,10 @@ const NewTemplate = props => {
     const [body, setBody] = useState('')
 
 
-    // saves new template to back end and sets as currentTemplate in store
-
+    // saves new template to back end and resets userData in store
     const saveNewTemplate = () => {
         const {login, currentTemplate, state} = props
+        // in case no user is logged in
         if (!state.login.id) return
 
         const reqObj = {
@@ -37,9 +37,6 @@ const NewTemplate = props => {
         .then(userData=> {
             // redo login to include new template in store
             login(userData)
-
-            // grab last template in array and make current template
-            // currentTemplate(userData.templates[userData.templates.length-1]) 
         });
     }
 

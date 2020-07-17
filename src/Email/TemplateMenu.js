@@ -40,7 +40,7 @@ const TemplateMenu = props => {
                 {/* Map thru store of user templates and display */}
                 {templates && templates.map(template => {
                     return (
-                        <Segment className="template-item" onClick={()=> props.currentTemplate(template)}>
+                        <Segment className="template-item" onClick={()=> props.currentTemplate(template)} key={template.id}>
                             <Icon className="delete-button" onClick={() => handleDelete(template.id)} name="delete"/>
                             <h3>{template.name}</h3>
                             <p>{template.subject}</p>

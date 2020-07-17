@@ -1,36 +1,23 @@
 import React, { useState } from 'react';
 
 //styling
-import './Email.css';
-
-import { Input, Segment, Button } from 'semantic-ui-react'
+import './Contact.css'
+import { Input, Segment, Button, Divider } from 'semantic-ui-react'
 
 //components
+import NewContact from './NewContact';
 
 
 const Contacts = () => {
   const [searchItem, setSearchItem] = useState('')
-
-
-  const TEST = () => {
-    const testArr = []
-    for (let i=0; i<10; i++){
-      testArr.push(<Segment key={i}>
-        <h3>Jason Melton</h3>
-        <p>jason.melton2@gmail.com</p>
-      </Segment>)
-
-    }  
-    return testArr
-  }
-
+  const [toggleNewContact, setToggleNewContact] = useState(false)
   
   return (
     <Segment className="Contacts email-item">
+      {/* OPTIONS */}
       <div className="contact-options">
-
-        {/* sort options */}
-        <Button>+</Button>
+        {/* TOGGLE NEW CONTACT CONTAINER */}
+        <Button onClick={() => setToggleNewContact(!toggleNewContact)}> + </Button>
 
         {/* search input  */}
         <Input placeholder="Search..."
@@ -38,14 +25,20 @@ const Contacts = () => {
           value={searchItem}/>
       </div>
 
+      {toggleNewContact ? 
+        <NewContact setToggleNewContact={setToggleNewContact}/>
+        : ""}
+      <Divider/>
+
+
+
+
       {/* contact list */}
       <div className="no-overflow">
         <Segment>
           <h3>Dave</h3>
           <p>Dave@gmail.com</p>
         </Segment>
-
-        {TEST()}
       </div>
 
 

@@ -13,15 +13,14 @@ const EditTemplate = props => {
     const [name, setName] = useState(templateData.name)
     const [subject, setSubject] = useState(templateData.subject)
     const [body, setBody] = useState(templateData.body)
-
-    console.log(id)
     
+    // if template in template menu is clicked, this updates state
     useEffect(() => {
         if (id === templateData.id) return
         setId(templateData.id)
         setName(templateData.name)
         setSubject(templateData.subject)
-        setBody(templateData.name)
+        setBody(templateData.body)
     });
 
     const saveEditTemplate = () => {
@@ -43,8 +42,10 @@ const EditTemplate = props => {
         
         fetch(`http://localhost:3000/templates/${templateData.id}`, reqObj)
         .then(r=>r.json())
-        .then(userData=> {
+        .then(userData => {
+            console.log(userData)
             login(userData)
+
         });
     }
 
@@ -52,23 +53,20 @@ const EditTemplate = props => {
         <>
             <Input placeholder="template name" 
                 value={name}
-                onBlur={saveEditTemplate} 
                 onChange={e => setName(e.target.value)}/>
-
             <Divider/>
 
             <Input placeholder="subject"
-                onBlur={saveEditTemplate} 
                 onChange={e => setSubject(e.target.value)}
                 value={subject}/>
                 
             <Form className="template-text" >
                 <TextArea className="template-text" 
-                    onBlur={saveEditTemplate} 
                     placeholder="body"
                     onChange={e => setBody(e.target.value)}
                     value={body}/>
             </Form>
+            <Button onClick={saveEditTemplate}>Save</Button>
         </>
     );
 }

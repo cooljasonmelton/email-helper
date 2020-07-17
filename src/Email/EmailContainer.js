@@ -7,7 +7,7 @@ import { Segment, Grid } from 'semantic-ui-react'
 //components
 import TemplateMenu from './TemplateMenu';
 import Template from './Template';
-import Contacts from './Contacts';
+import Contacts from '../Contact/Contacts';
 
 const EmailContainer = () => {
   

@@ -10,7 +10,7 @@ import { Segment, Button, Input, Icon } from 'semantic-ui-react'
 const TemplateMenu = props => {
     const [searchItem, setSearchItem] = useState('')
 
-    const {templates} = props.state.login
+    const { templates } = props.state.login
 
     const handleDelete = tempId => {
         fetch("http://localhost:3000/templates/" + tempId, {method: 'DELETE'})
@@ -40,11 +40,11 @@ const TemplateMenu = props => {
                 {/* Map thru store of user templates and display */}
                 {templates && templates.map(template => {
                     return (
-                        <Segment className="template-item" onClick={()=> props.currentTemplate(template)}>
+                        <Segment className="template-item" onClick={()=> props.currentTemplate(template)} key={template.id}>
                             <Icon className="delete-button" onClick={() => handleDelete(template.id)} name="delete"/>
                             <h3>{template.name}</h3>
-                            <p>{template.subject}</p>
-                            <p>{template.body.substring(0,100)}</p>
+                            <h4>{template.subject}</h4>
+                            <p>{template.body.substring(0,100)}...</p>
                         </Segment>
                     )}).reverse()
                 }   

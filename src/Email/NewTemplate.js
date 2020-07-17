@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 //styling
 import './Email.css';
-import { Divider, TextArea, Input, Form } from 'semantic-ui-react'
+import { Divider, TextArea, Input, Form, Button } from 'semantic-ui-react'
 
 const NewTemplate = props => {
     const [name, setName] = useState('')
@@ -13,10 +13,10 @@ const NewTemplate = props => {
     const [body, setBody] = useState('')
 
 
-    // saves new template to back end and sets as currentTemplate in store
-
+    // saves new template to back end and resets userData in store
     const saveNewTemplate = () => {
         const {login, currentTemplate, state} = props
+        // in case no user is logged in
         if (!state.login.id) return
 
         const reqObj = {
@@ -37,9 +37,6 @@ const NewTemplate = props => {
         .then(userData=> {
             // redo login to include new template in store
             login(userData)
-
-            // grab last template in array and make current template
-            currentTemplate(userData.templates[userData.templates.length-1]) 
         });
     }
 
@@ -47,23 +44,21 @@ const NewTemplate = props => {
         <>
             <Input placeholder="template name" 
                 value={name}
-                onBlur={saveNewTemplate} 
                 onChange={e => setName(e.target.value)}/>
 
             <Divider/>
 
             <Input placeholder="subject"
-                onBlur={saveNewTemplate} 
                 onChange={e => setSubject(e.target.value)}
                 value={subject}/>
                 
             <Form className="template-text" >
                 <TextArea className="template-text" 
-                    onBlur={saveNewTemplate} 
                     placeholder="body"
                     onChange={e => setBody(e.target.value)}
                     value={body}/>
             </Form>
+            <Button onClick={saveNewTemplate}>Save</Button>
         </>
     );
 }

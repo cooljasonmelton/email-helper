@@ -2,12 +2,10 @@
 
 
 ## features
-* create, read, and update email templates
+* create, read, update, and delete email templates
 
 ## feature goals
-
 * login with email
-* create, read, update, delete email templates
 * create, read, update, delete contacts
 * sort, filter, select contacts
 * search templates
@@ -17,24 +15,20 @@
 ### To Do List (to get MVP)
 
 NEXT: 
-* template plus button gives blank new template form
-* template items in template menu have delete functionality
 * refactor and document edit template
+* delete button on contact
+* edit button changes contact to edit form
 
-GOALS:
--templates
-* ---D templates (CRUD)
---delete button on library item
-* select template add to redux store as selected
-* display selected template in center div
-* new template displays create form in center div
-
+TO DO:
 -contacts
-* organize contact div, set up features
-* CRUD contacts
-* checkbox to select contacts
+* --UD contacts
+* checkbox / highlight to select contacts
+
+-send
+* function that opens email in new tab in order to send 
 
 ### STRETCH:
 * user full CRUD
 * authentication
 * checkbox for bcc, cc on contacts resource: https://css-tricks.com/all-about-mailto-links/
+* select all for contact list

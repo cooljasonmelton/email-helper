@@ -10,7 +10,7 @@ import { Segment, Button, Input, Icon } from 'semantic-ui-react'
 const TemplateMenu = props => {
     const [searchItem, setSearchItem] = useState('')
 
-    const {templates} = props.state.login
+    const { templates } = props.state.login
 
     const handleDelete = tempId => {
         fetch("http://localhost:3000/templates/" + tempId, {method: 'DELETE'})

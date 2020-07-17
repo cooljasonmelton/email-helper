@@ -35,9 +35,6 @@ const Template = props => {
         <EditTemplate/>
           : <NewTemplate/>
       }
-
-      {/* DELETE BUTTON */}
-      <Divider/>
     </Segment>
   );
 }

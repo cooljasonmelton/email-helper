@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 //styling
 import './Contact.css';
-import { Divider, TextArea, Input, Form, Button } from 'semantic-ui-react'
+import { Divider, Input, Button } from 'semantic-ui-react'
 
 const NewContact = props => {
     const [name, setName] = useState('');
@@ -41,13 +41,19 @@ const NewContact = props => {
 
     return (
         <>
-            <Input placeholder="contact name" 
-                value={name}
-                onChange={e => setName(e.target.value)}/>
-            <Input placeholder="email"
-                onChange={e => setEmail(e.target.value)}
-                value={email}/>
-            <Button onClick={saveNewContact}>Save</Button>
+            <div style={{width:"100%"}}>
+                <h3>add contact</h3>
+                <Input placeholder="contact name" 
+                    style={{width:"50%"}}
+                    value={name}
+                    onChange={e => setName(e.target.value)}/>
+                <Input placeholder="email"
+                    style={{width:"50%"}}
+                    onChange={e => setEmail(e.target.value)}
+                    value={email}/>
+                <Button style={{width:"100%"}} onClick={saveNewContact}>Save</Button>
+            </div>
+            <Divider/>
         </>
     );
 }

@@ -34,9 +34,7 @@ const Contacts = props => {
       {toggleNewContact ? 
         <NewContact setToggleNewContact={setToggleNewContact}/>
           : ""}
-
-      <Divider/>
-
+          
       {/* contact list */}
       <div className="no-overflow">
 

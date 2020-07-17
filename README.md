@@ -16,15 +16,12 @@
 
 NEXT: 
 * refactor and document edit template
-* create new contacts
-* display all contacts
 * delete button on contact
 * edit button changes contact to edit form
 
 TO DO:
 -contacts
-* organize contact div, set up features
-* CRUD contacts
+* --UD contacts
 * checkbox / highlight to select contacts
 
 -send

@@ -13,3 +13,9 @@
 div.ui.segment.Navbar{
     background-color: #F3F6F7;
 }
+
+.center-flex-box {
+    display: flex;
+    flex-direction: column;
+    align-items: space-around;
+}

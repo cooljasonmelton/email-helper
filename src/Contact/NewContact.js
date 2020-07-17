@@ -13,9 +13,12 @@ const NewContact = props => {
 
     // save new contact to back end and update userdata in store
     const saveNewContact = () => {
+         const { login, state } = props;
+        
+         // toggles new contact form closed
         props.setToggleNewContact();
-        const {login, state} = props;
 
+        // required object for fetch request
         const reqObj = {
             method: "POST",
             headers: {
@@ -27,7 +30,7 @@ const NewContact = props => {
                 email
             })
         };
-
+        // save new contact to back end
         fetch('http://localhost:3000/contacts', reqObj)
         .then(r=>r.json())
         .then(userData=> {

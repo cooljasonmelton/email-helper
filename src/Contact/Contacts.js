@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 
+//redux
+import { connect } from 'react-redux'
+
 //styling
 import './Contact.css'
 import { Input, Segment, Button, Divider } from 'semantic-ui-react'
@@ -7,9 +10,12 @@ import { Input, Segment, Button, Divider } from 'semantic-ui-react'
 //components
 import NewContact from './NewContact';
 
-const Contacts = () => {
+const Contacts = props => {
   const [searchItem, setSearchItem] = useState('')
   const [toggleNewContact, setToggleNewContact] = useState(false)
+
+  const { contacts } = props.state.login
+
  
   return (
     <Segment className="Contacts email-item">
@@ -33,10 +39,15 @@ const Contacts = () => {
 
       {/* contact list */}
       <div className="no-overflow">
-        <Segment>
-          <h3>Dave</h3>
-          <p>Dave@gmail.com</p>
+
+      {contacts && contacts.map(contact=> {
+        return (<Segment className="contact-item">
+          <h3>{contact.name}</h3>
+          <p>{contact.email}</p>
         </Segment>
+      )})}
+
+
       </div>
 
 
@@ -44,4 +55,17 @@ const Contacts = () => {
   );
 }
 
-export default Contacts;
+// NOT USING YET
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     login: userData => dispatch({ type: 'LOGIN_USER', payload: userData }), 
+//   };
+// };
+
+const mapStateToProps = state => {
+  return {
+      state
+  }
+}
+
+export default connect(mapStateToProps)(Contacts);

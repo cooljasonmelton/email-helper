@@ -23,8 +23,12 @@ const Contacts = props => {
     return 0;
   })
 
-  const handleDelete = () => {
-    console.log('delete')
+
+  // when delete button pressed, deletes contact
+  const handleDelete = contactId => {
+    fetch(`http://localhost:3000/contacts/${contactId}`, {method: 'DELETE'})
+    .then(r=>r.json())
+    .then(userData => props.login(userData))
   }
    
   return (
@@ -61,10 +65,16 @@ const Contacts = props => {
   );
 }
 
+const mapDispatchToProps = dispatch => {
+  return {
+    login: userData => dispatch({ type: 'LOGIN_USER', payload: userData }), 
+  };
+};
+
 const mapStateToProps = state => {
   return {
       state
   }
 }
 
-export default connect(mapStateToProps)(Contacts);
+export default connect(mapStateToProps, mapDispatchToProps)(Contacts);

@@ -10,3 +10,7 @@ div.contact-options{
     display: flex;
     justify-content: space-between;
 }
+
+div.ui.segment.contact-item:hover{
+    background-color: #F3F6F7;
+}

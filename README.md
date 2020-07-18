@@ -16,13 +16,13 @@
 
 NEXT: 
 * refactor and document edit template
-* delete button on contact
 * edit button changes contact to edit form
 
 TO DO:
 -contacts
 * --UD contacts
 * checkbox / highlight to select contacts
+* refactor and document contacts 
 
 -send
 * function that opens email in new tab in order to send 

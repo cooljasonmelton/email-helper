@@ -12,10 +12,9 @@ const NewTemplate = props => {
     const [subject, setSubject] = useState('')
     const [body, setBody] = useState('')
 
-
     // saves new template to back end and resets userData in store
     const saveNewTemplate = () => {
-        const {login, currentTemplate, state} = props
+        const {login, state} = props
         // in case no user is logged in
         if (!state.login.id) return
 

@@ -5,10 +5,11 @@ import { connect } from 'react-redux'
 
 //styling
 import './Contact.css'
-import { Input, Segment, Button, Divider } from 'semantic-ui-react'
+import { Input, Segment, Button } from 'semantic-ui-react'
 
 //components
 import NewContact from './NewContact';
+import ContactItem from './ContactItem'
 
 const Contacts = props => {
   const [searchItem, setSearchItem] = useState('')
@@ -16,49 +17,56 @@ const Contacts = props => {
 
   const { contacts } = props.state.login
 
- 
+  // put contacts in alphabetical order by name
+  const sortContacts = contacts => contacts.sort((a,b) => {
+    if(a.name.toLowerCase() < b.name.toLowerCase()) { return -1; }
+    if(a.name.toLowerCase() > b.name.toLowerCase()) { return 1; }
+    return 0;
+  })
+  
   return (
     <Segment className="Contacts email-item">
+
       {/* OPTIONS */}
       <div className="contact-options">
+
         {/* TOGGLE NEW CONTACT CONTAINER */}
         <Button onClick={() => setToggleNewContact(!toggleNewContact)}> + </Button>
 
-        {/* search input  */}
+        {/* SEARCH INPUT  */}
         <Input placeholder="Search..."
           onChange={e => setSearchItem(e.target.value)}
           value={searchItem}/>
-      </div>
 
-      {/* toggle new contact form */}
-      {toggleNewContact ? 
-        <NewContact setToggleNewContact={setToggleNewContact}/>
-          : ""}
-          
-      {/* contact list */}
+        {/* SELECT ALL CONTACTS */}
+        <Button icon="reply all" />
+
+      </div>
+      
+      {/* DIV'D OFF FOR STYLING */}
       <div className="no-overflow">
 
-      {contacts && contacts.map(contact=> {
-        return (<Segment className="contact-item">
-          <h3>{contact.name}</h3>
-          <p>{contact.email}</p>
-        </Segment>
-      )})}
-
-
+        {/* TOGGLE NEW CONTACT FORM */}
+        {toggleNewContact ? 
+          <NewContact setToggleNewContact={setToggleNewContact}/>
+            : ""}
+          
+        {/* CONTACT LIST */}
+        {contacts && sortContacts(contacts).map(contact=> {
+          return (
+            <ContactItem contact={contact}/>
+          )
+        })}
       </div>
-
-
     </Segment>
   );
 }
 
-// NOT USING YET
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     login: userData => dispatch({ type: 'LOGIN_USER', payload: userData }), 
-//   };
-// };
+const mapDispatchToProps = dispatch => {
+  return {
+    login: userData => dispatch({ type: 'LOGIN_USER', payload: userData }), 
+  };
+};
 
 const mapStateToProps = state => {
   return {
@@ -66,4 +74,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(Contacts);
+export default connect(mapStateToProps, mapDispatchToProps)(Contacts);

@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 //styling
 import './Navbar.css';
-import { Form, Input, Button } from 'semantic-ui-react'
+import { Form, Input } from 'semantic-ui-react'
 
 const Login = props => {
   const [signUp, setSignUp] = useState(false)

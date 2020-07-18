@@ -44,7 +44,7 @@ const TemplateMenu = props => {
                             <Icon className="delete-button" onClick={() => handleDelete(template.id)} name="delete"/>
                             <h3>{template.name}</h3>
                             <h4>{template.subject}</h4>
-                            <p>{template.body.substring(0,100)}...</p>
+                            <p>{template.body.substring(0,100)} . . .</p>
                         </Segment>
                     )}).reverse()
                 }   

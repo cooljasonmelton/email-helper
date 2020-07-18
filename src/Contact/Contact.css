@@ -1,3 +1,7 @@
 div.ui.segment.contact-item{
     text-align: center;
 }
+
+.delete.icon.delete-button{
+    float: right;
+}

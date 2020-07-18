@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 //styling
 import './Contact.css'
-import { Input, Segment, Button, Divider } from 'semantic-ui-react'
+import { Input, Segment, Button, Icon } from 'semantic-ui-react'
 
 //components
 import NewContact from './NewContact';
@@ -16,19 +16,17 @@ const Contacts = props => {
 
   const { contacts } = props.state.login
 
-  // put contatacts in alphabetical order by name
+  // put contacts in alphabetical order by name
   const sortContacts = contacts => contacts.sort((a,b) => {
     if(a.name.toLowerCase() < b.name.toLowerCase()) { return -1; }
     if(a.name.toLowerCase() > b.name.toLowerCase()) { return 1; }
     return 0;
   })
-  
 
-
-
-
-
- 
+  const handleDelete = () => {
+    console.log('delete')
+  }
+   
   return (
     <Segment className="Contacts email-item">
       {/* OPTIONS */}
@@ -52,15 +50,13 @@ const Contacts = props => {
 
       {contacts && sortContacts(contacts).map(contact=> {
         return (<Segment className="contact-item">
+          <Icon className="delete-button" onClick={() => handleDelete(contact.id)} name="delete"/>
           <h3>{contact.name}</h3>
           <p>{contact.email}</p>
         </Segment>
         )
       })}
-
       </div>
-
-
     </Segment>
   );
 }

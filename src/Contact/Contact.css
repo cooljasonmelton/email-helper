@@ -5,3 +5,8 @@ div.ui.segment.contact-item{
 .delete.icon.delete-button{
     float: right;
 }
+
+div.contact-options{
+    display: flex;
+    justify-content: space-between;
+}

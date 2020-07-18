@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 //styling
 import './Contact.css'
-import { Input, Segment, Button, Icon } from 'semantic-ui-react'
+import { Input, Segment, Button, Icon, Divider } from 'semantic-ui-react'
 
 //components
 import NewContact from './NewContact';
@@ -23,7 +23,6 @@ const Contacts = props => {
     return 0;
   })
 
-
   // when delete button pressed, deletes contact
   const handleDelete = contactId => {
     fetch(`http://localhost:3000/contacts/${contactId}`, {method: 'DELETE'})
@@ -33,8 +32,10 @@ const Contacts = props => {
    
   return (
     <Segment className="Contacts email-item">
+
       {/* OPTIONS */}
       <div className="contact-options">
+
         {/* TOGGLE NEW CONTACT CONTAINER */}
         <Button onClick={() => setToggleNewContact(!toggleNewContact)}> + </Button>
 
@@ -42,6 +43,9 @@ const Contacts = props => {
         <Input placeholder="Search..."
           onChange={e => setSearchItem(e.target.value)}
           value={searchItem}/>
+
+        <Button icon="reply all" />
+
       </div>
 
       {/* toggle new contact form */}
@@ -51,15 +55,15 @@ const Contacts = props => {
           
       {/* contact list */}
       <div className="no-overflow">
-
-      {contacts && sortContacts(contacts).map(contact=> {
-        return (<Segment className="contact-item">
-          <Icon className="delete-button" onClick={() => handleDelete(contact.id)} name="delete"/>
-          <h3>{contact.name}</h3>
-          <p>{contact.email}</p>
-        </Segment>
-        )
-      })}
+        <Button style={{width: "100%"}}>Select All</Button>
+        {contacts && sortContacts(contacts).map(contact=> {
+          return (<Segment className="contact-item">
+            <Icon className="delete-button" onClick={() => handleDelete(contact.id)} name="delete"/>
+            <h3>{contact.name}</h3>
+            <p>{contact.email}</p>
+          </Segment>
+          )
+        })}
       </div>
     </Segment>
   );

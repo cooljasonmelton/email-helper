@@ -24,7 +24,7 @@ const EditTemplate = props => {
     });
 
     const saveEditTemplate = () => {
-        const {userData, templateData, login, currentTemplate} = props
+        const { userData, templateData, login } = props
         if (!templateData.id) return
             const reqObj = {
             method: "PATCH",

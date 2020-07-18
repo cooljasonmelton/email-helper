@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 //styling
 import './Email.css';
-import { Segment, Divider, Button, Icon } from 'semantic-ui-react'
+import { Segment, Button, Icon } from 'semantic-ui-react'
 
 //components
 import NewTemplate from './NewTemplate'

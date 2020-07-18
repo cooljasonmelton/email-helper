@@ -14,3 +14,7 @@ div.contact-options{
 div.ui.segment.contact-item:hover{
     background-color: #F3F6F7;
 }
+
+div.ui.segment.contact-item.selected{
+    background-color: #F3F6F7;
+}

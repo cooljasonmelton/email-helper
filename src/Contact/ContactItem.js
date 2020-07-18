@@ -11,23 +11,24 @@ const ContactItem = props => {
     const { contact, currentContacts } = props
     console.log(props.state.currentContacts.contacts)
 
+
+    // takes contact object as parameter
     const toggleSetCurrentContact = contact => {
         const { contacts } = props.state.currentContacts
 
+        // checks if contact is in store
         const contactSet = contacts.filter(c => c.id === contact.id)
 
+        // if contact is in store, removes it
         if (contactSet.length > 0){
             let removeContacts = contacts.filter(c => c.id !== contact.id)
             return currentContacts({ contacts: removeContacts })
+        
+        // if contact is not in store, adds it
         } else {
             let addContacts = [...contacts, contact]
             return currentContacts({ contacts: addContacts })
         }
-
-        // get current contacts
-        // add or remove this contact
-        // reset contacts to this one
-
     }
 
     // when delete button pressed, deletes contact
@@ -37,8 +38,14 @@ const ContactItem = props => {
         .then(userData => props.login(userData))
     }
 
+    const checkSelected = contactId => {
+        const { contacts } = props.state.currentContacts
+        if (contacts.filter(c => c.id === contactId).length > 0) return " selected"
+        return ""
+    }
+
     return(
-        <Segment className="contact-item" onClick={() => toggleSetCurrentContact(contact)}>
+        <Segment className={"contact-item" + checkSelected(contact.id)}  onClick={() => toggleSetCurrentContact(contact)}>
             <Icon className="delete-button" onClick={() => handleDelete(contact.id)} name="delete"/>
             <h3>{contact.name}</h3>
             <p>{contact.email}</p>

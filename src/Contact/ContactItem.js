@@ -9,8 +9,6 @@ import { Segment, Icon } from 'semantic-ui-react'
 
 const ContactItem = props => {
     const { contact, currentContacts } = props
-    console.log(props.state.currentContacts.contacts)
-
 
     // takes contact object as parameter
     const toggleSetCurrentContact = contact => {
@@ -38,6 +36,7 @@ const ContactItem = props => {
         .then(userData => props.login(userData))
     }
 
+    // check if item is in currentContacts store and if so add 'selected' classname
     const checkSelected = contactId => {
         const { contacts } = props.state.currentContacts
         if (contacts.filter(c => c.id === contactId).length > 0) return " selected"

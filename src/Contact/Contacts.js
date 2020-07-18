@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 //styling
 import './Contact.css'
-import { Input, Segment, Button, Icon, Divider } from 'semantic-ui-react'
+import { Input, Segment, Button, Icon } from 'semantic-ui-react'
 
 //components
 import NewContact from './NewContact';
@@ -39,29 +39,31 @@ const Contacts = props => {
         {/* TOGGLE NEW CONTACT CONTAINER */}
         <Button onClick={() => setToggleNewContact(!toggleNewContact)}> + </Button>
 
-        {/* search input  */}
+        {/* SEARCH INPUT  */}
         <Input placeholder="Search..."
           onChange={e => setSearchItem(e.target.value)}
           value={searchItem}/>
 
+        {/* SELECT ALL CONTACTS */}
         <Button icon="reply all" />
 
       </div>
 
-      {/* toggle new contact form */}
-      {toggleNewContact ? 
-        <NewContact setToggleNewContact={setToggleNewContact}/>
-          : ""}
-          
-      {/* contact list */}
       <div className="no-overflow">
-        <Button style={{width: "100%"}}>Select All</Button>
+
+        {/* TOGGLE NEW CONTACT FORM */}
+        {toggleNewContact ? 
+          <NewContact setToggleNewContact={setToggleNewContact}/>
+            : ""}
+          
+        {/* CONTACT LIST */}
         {contacts && sortContacts(contacts).map(contact=> {
-          return (<Segment className="contact-item">
-            <Icon className="delete-button" onClick={() => handleDelete(contact.id)} name="delete"/>
-            <h3>{contact.name}</h3>
-            <p>{contact.email}</p>
-          </Segment>
+          return (
+            <Segment className="contact-item">
+              <Icon className="delete-button" onClick={() => handleDelete(contact.id)} name="delete"/>
+              <h3>{contact.name}</h3>
+              <p>{contact.email}</p>
+            </Segment>
           )
         })}
       </div>

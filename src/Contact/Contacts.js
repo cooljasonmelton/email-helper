@@ -16,6 +16,18 @@ const Contacts = props => {
 
   const { contacts } = props.state.login
 
+  // put contatacts in alphabetical order by name
+  const sortContacts = contacts => contacts.sort((a,b) => {
+    if(a.name.toLowerCase() < b.name.toLowerCase()) { return -1; }
+    if(a.name.toLowerCase() > b.name.toLowerCase()) { return 1; }
+    return 0;
+  })
+  
+
+
+
+
+
  
   return (
     <Segment className="Contacts email-item">
@@ -38,13 +50,13 @@ const Contacts = props => {
       {/* contact list */}
       <div className="no-overflow">
 
-      {contacts && contacts.map(contact=> {
+      {contacts && sortContacts(contacts).map(contact=> {
         return (<Segment className="contact-item">
           <h3>{contact.name}</h3>
           <p>{contact.email}</p>
         </Segment>
-      )})}
-
+        )
+      })}
 
       </div>
 
@@ -52,13 +64,6 @@ const Contacts = props => {
     </Segment>
   );
 }
-
-// NOT USING YET
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     login: userData => dispatch({ type: 'LOGIN_USER', payload: userData }), 
-//   };
-// };
 
 const mapStateToProps = state => {
   return {

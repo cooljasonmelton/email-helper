@@ -2,10 +2,6 @@ div.ui.segment.contact-item{
     text-align: center;
 }
 
-.delete.icon.delete-button{
-    float: right;
-}
-
 div.contact-options{
     display: flex;
     justify-content: space-between;
@@ -17,4 +13,10 @@ div.ui.segment.contact-item:hover{
 
 div.ui.segment.contact-item.selected{
     background-color: #F3F6F7;
+}
+
+div.contact-buttons{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
 }

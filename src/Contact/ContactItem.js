@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 //redux
 import { connect } from 'react-redux'
 
 //styling
 import './Contact.css'
-import { Segment, Icon } from 'semantic-ui-react'
+import { Segment, Icon, Input, Divider, Button } from 'semantic-ui-react'
 
 const ContactItem = props => {
+    const [editContact, setEditContact] = useState(false)
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+
     const { contact, currentContacts } = props
 
     // takes contact object as parameter
@@ -29,11 +33,33 @@ const ContactItem = props => {
         }
     }
 
-    // when delete button pressed, deletes contact
-    const handleDelete = contactId => {
-        fetch(`http://localhost:3000/contacts/${contactId}`, {method: 'DELETE'})
+    const handleEditContact = contact => {
+        setEditContact(!editContact)
+        setName(contact.name)
+        setEmail(contact.email)
+    }
+
+    const handleUpdateContact = (contact, method) => {
+        let reqObj;
+        if (method === "DELETE") reqObj = { method: method }
+
+        if (method === "PATCH") reqObj = {
+            method: method,
+            headers: {
+                'Content-Type': 'application/json' 
+            },
+            body: JSON.stringify({
+                name, 
+                email 
+            })
+        }
+
+        fetch(`http://localhost:3000/contacts/${contact.id}`, reqObj)
         .then(r=>r.json())
         .then(userData => props.login(userData))
+
+        // toggle edit off 
+        setEditContact(false)
     }
 
     // check if item is in currentContacts store and if so add 'selected' classname
@@ -44,11 +70,34 @@ const ContactItem = props => {
     }
 
     return(
-        <Segment className={"contact-item" + checkSelected(contact.id)}  onClick={() => toggleSetCurrentContact(contact)}>
-            <Icon className="delete-button" onClick={() => handleDelete(contact.id)} name="delete"/>
-            <h3>{contact.name}</h3>
-            <p>{contact.email}</p>
+        // CONTACT SEGMENT 
+        <Segment className={"contact-item" + checkSelected(contact.id)}  
+            onClick={() => toggleSetCurrentContact(contact)}>
+        
+            {!editContact ?
+            <>
+                <div className="contact-buttons">
+                    <Icon className="edit-button" onClick={() => handleEditContact(contact)} name="edit"/>
+                    <Icon className="delete-button" onClick={() => handleUpdateContact(contact, "DELETE")} name="delete"/>
+                </div>
+                <h3>{contact.name}</h3>
+                <p>{contact.email}</p>
+            </>
+                :   <> {/* EDIT FORM */}
+                        <div className="contact-buttons">
+                            <Icon className="edit-button" onClick={() => handleEditContact(contact)} name="edit"/>
+                            <Icon className="delete-button" onClick={() => handleUpdateContact(contact, "DELETE")} name="delete"/>
+                        </div>
+                        <Divider/>
+                        <div>
+                            <Input className="widen" value={name} onChange={e => setName(e.target.value)} />
+                            <Input className="widen" value={email} onChange={e => setEmail(e.target.value)} />
+                            <Button className="widen" onClick={() => handleUpdateContact(contact, "PATCH")}>Save</Button>
+                        </div>
+                    </>}
+
         </Segment>
+        
     )
 }
 

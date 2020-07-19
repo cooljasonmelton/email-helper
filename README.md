@@ -3,11 +3,12 @@
 
 ## features
 * create, read, update, and delete email templates
+* create, read, and delete contacts
+* select specific / select all contacts
 
 ## feature goals
 * login with email
-* create, read, update, delete contacts
-* sort, filter, select contacts
+* update contacts
 * search templates
 * send email template to selected contacts
 
@@ -31,4 +32,3 @@ TO DO:
 * user full CRUD
 * authentication
 * checkbox for bcc, cc on contacts resource: https://css-tricks.com/all-about-mailto-links/
-* select all for contact list

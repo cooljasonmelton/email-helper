@@ -23,6 +23,18 @@ const Contacts = props => {
     if(a.name.toLowerCase() > b.name.toLowerCase()) { return 1; }
     return 0;
   })
+
+  const selectAllContacts = () => {
+    // check how may contacts, if none, add all, empty array
+    const { currentContacts } = props.state
+    console.log(props.state)
+    props.currentContacts({ contacts: contacts })
+    if (currentContacts.contacts.length === contacts.length) {
+      props.currentContacts({ contacts: [] })
+    }
+    // close toggle, also trigger render
+    // setToggleNewContact(false)
+  }
   
   return (
     <Segment className="Contacts email-item">
@@ -39,7 +51,7 @@ const Contacts = props => {
           value={searchItem}/>
 
         {/* SELECT ALL CONTACTS */}
-        <Button icon="reply all" />
+        <Button onClick={selectAllContacts} icon="reply all" />
 
       </div>
       
@@ -65,6 +77,7 @@ const Contacts = props => {
 const mapDispatchToProps = dispatch => {
   return {
     login: userData => dispatch({ type: 'LOGIN_USER', payload: userData }), 
+    currentContacts: contactData => dispatch({ type: 'SET_CURRENT_CONTACTS', payload: contactData })
   };
 };
 

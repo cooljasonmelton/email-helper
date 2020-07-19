@@ -65,7 +65,6 @@ const NewTemplate = props => {
 const mapDispatchToProps = dispatch => {
     return {
       login: userData => dispatch({ type: 'LOGIN_USER', payload: userData }), 
-      currentTemplate: templateData => dispatch({type:'SET_CURRENT_TEMPLATE', payload: templateData})
     };
 };
   

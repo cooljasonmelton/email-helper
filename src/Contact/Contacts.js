@@ -63,7 +63,7 @@ const Contacts = props => {
         {/* CONTACT LIST */}
         {contacts && sortContacts(contacts).map(contact=> {
           return (
-            <ContactItem contact={contact}/>
+            <ContactItem key={contact.id} contact={contact}/>
           )
         })}
       </div>

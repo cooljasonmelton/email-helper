@@ -24,7 +24,7 @@ const EditTemplate = props => {
     });
 
     const saveEditTemplate = () => {
-        const { userData, templateData, login } = props
+        const { userData, templateData, login, currentTemplate } = props
         if (!templateData.id) return
             const reqObj = {
             method: "PATCH",
@@ -42,8 +42,9 @@ const EditTemplate = props => {
         fetch(`http://localhost:3000/templates/${templateData.id}`, reqObj)
         .then(r=>r.json())
         .then(userData => {
-            console.log(userData)
             login(userData)
+            console.log(userData.templates.filter(t=>t.id ===templateData.id))
+            currentTemplate(userData.templates.filter(t => t.id === templateData.id)[0])
 
         });
     }

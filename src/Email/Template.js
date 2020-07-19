@@ -10,23 +10,14 @@ import { Segment, Button, Icon } from 'semantic-ui-react'
 //components
 import NewTemplate from './NewTemplate'
 import EditTemplate from './EditTemplate'
+import SendEmailButton from './SendEmailButton';
 
-const Template = props => {
-  // const sendEmail = () =>{
-  //   const mailtoURL = `mailto:${contacts.join(",")}?subject=${subject}&body=${body}`
-  //   window.open(mailtoURL, "_blank") 
-  // }  
-  
+const Template = props => { 
   return (
     <Segment className="Template email-item center-flex-box">
 
       {/* SEND BUTTON */}
-      <Button animated onClick={null}>
-        <Button.Content visible>Send</Button.Content>
-        <Button.Content hidden>
-        <Icon name='arrow right' />
-        </Button.Content>
-      </Button>
+      <SendEmailButton/>
       
       <br/>
 

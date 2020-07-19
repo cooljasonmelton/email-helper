@@ -39,7 +39,6 @@ const ContactItem = props => {
         setEmail(contact.email)
     }
 
-
     const handleUpdateContact = (contact, method) => {
         let reqObj;
         if (method === "DELETE") reqObj = { method: method }
@@ -58,6 +57,9 @@ const ContactItem = props => {
         fetch(`http://localhost:3000/contacts/${contact.id}`, reqObj)
         .then(r=>r.json())
         .then(userData => props.login(userData))
+
+        // toggle edit off 
+        setEditContact(false)
     }
 
     // check if item is in currentContacts store and if so add 'selected' classname
@@ -88,14 +90,13 @@ const ContactItem = props => {
                         </div>
                         <Divider/>
                         <div>
-                            <Input value={name} onChange={e => setName(e.target.value)} />
-                            <Input value={email} onChange={e => setEmail(e.target.value)} />
-                            <Button onClick={() => handleUpdateContact(contact, "PATCH")}>Save</Button>
+                            <Input className="widen" value={name} onChange={e => setName(e.target.value)} />
+                            <Input className="widen" value={email} onChange={e => setEmail(e.target.value)} />
+                            <Button className="widen" onClick={() => handleUpdateContact(contact, "PATCH")}>Save</Button>
                         </div>
                     </>}
 
         </Segment>
-        
         
     )
 }

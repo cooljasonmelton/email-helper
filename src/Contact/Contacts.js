@@ -27,13 +27,10 @@ const Contacts = props => {
   const selectAllContacts = () => {
     // check how may contacts, if none, add all, empty array
     const { currentContacts } = props.state
-    console.log(props.state)
     props.currentContacts({ contacts: contacts })
     if (currentContacts.contacts.length === contacts.length) {
       props.currentContacts({ contacts: [] })
     }
-    // close toggle, also trigger render
-    // setToggleNewContact(false)
   }
   
   return (

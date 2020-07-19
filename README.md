@@ -10,6 +10,7 @@
 * login with email
 * update contacts
 * search templates
+* search contacts
 * send email template to selected contacts
 
 
@@ -21,8 +22,7 @@ NEXT:
 
 TO DO:
 -contacts
-* --UD contacts
-* checkbox / highlight to select contacts
+* --U- contacts
 * refactor and document contacts 
 
 -send

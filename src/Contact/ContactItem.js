@@ -36,6 +36,10 @@ const ContactItem = props => {
         .then(userData => props.login(userData))
     }
 
+    const handleUpdate = contact => {
+        console.log(contact)
+    }
+
     // check if item is in currentContacts store and if so add 'selected' classname
     const checkSelected = contactId => {
         const { contacts } = props.state.currentContacts
@@ -45,7 +49,10 @@ const ContactItem = props => {
 
     return(
         <Segment className={"contact-item" + checkSelected(contact.id)}  onClick={() => toggleSetCurrentContact(contact)}>
-            <Icon className="delete-button" onClick={() => handleDelete(contact.id)} name="delete"/>
+            <div className="contact-buttons">
+                <Icon className="edit-button" onClick={() => handleUpdate(contact)} name="edit"/>
+                <Icon className="delete-button" onClick={() => handleDelete(contact.id)} name="delete"/>
+            </div>
             <h3>{contact.name}</h3>
             <p>{contact.email}</p>
         </Segment>

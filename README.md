@@ -16,14 +16,13 @@
 ### To Do List (to get MVP)
 
 NEXT: 
+* function that opens email in new tab in order to send 
 * refactor and document edit template
 * refactor and document contacts 
 
 
-TO DO:
--send
-* function that opens email in new tab in order to send 
 
+TO DO:
 ### STRETCH:
 * user full CRUD
 * authentication

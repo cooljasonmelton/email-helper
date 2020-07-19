@@ -12,6 +12,11 @@ const TemplateMenu = props => {
 
     const { templates } = props.state.login
 
+    // sort templates by id so they always appear in same order after edits
+    const sortTemplatesById = () => {
+        return templates.sort((a,b) => a.id - b.id)
+    }
+
     const handleDelete = tempId => {
         fetch("http://localhost:3000/templates/" + tempId, {method: 'DELETE'})
         .then(r=>r.json())
@@ -38,7 +43,7 @@ const TemplateMenu = props => {
             <div className="no-overflow">
 
                 {/* Map thru store of user templates and display */}
-                {templates && templates.map(template => {
+                {templates && sortTemplatesById().map(template => {
                     return (
                         <Segment className="template-item" onClick={()=> props.currentTemplate(template)} key={template.id}>
                             <Icon className="delete-button" onClick={() => handleDelete(template.id)} name="delete"/>

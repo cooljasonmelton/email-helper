@@ -95,7 +95,6 @@ const ContactItem = props => {
                             <Button className="widen" onClick={() => handleUpdateContact(contact, "PATCH")}>Save</Button>
                         </div>
                     </>}
-
         </Segment>
         
     )

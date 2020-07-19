@@ -3,12 +3,11 @@
 
 ## features
 * create, read, update, and delete email templates
-* create, read, and delete contacts
+* create, read, update, and delete contacts
 * select specific / select all contacts
 
 ## feature goals
 * login with email
-* update contacts
 * search templates
 * search contacts
 * send email template to selected contacts
@@ -18,13 +17,10 @@
 
 NEXT: 
 * refactor and document edit template
-* edit button changes contact to edit form
-
-TO DO:
--contacts
-* --U- contacts
 * refactor and document contacts 
 
+
+TO DO:
 -send
 * function that opens email in new tab in order to send 
 

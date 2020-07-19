@@ -43,7 +43,8 @@ const EditTemplate = props => {
         .then(r=>r.json())
         .then(userData => {
             login(userData)
-            currentTemplate(userData.templates.filter(t => t.id === templateData.id))
+            console.log(userData.templates.filter(t=>t.id ===templateData.id))
+            currentTemplate(userData.templates.filter(t => t.id === templateData.id)[0])
 
         });
     }

@@ -48,5 +48,4 @@ jason.melton2@gmail.com
 
 ### coming soon
 * search inputs work
-* current template gets highlight
 * display error message when login fails

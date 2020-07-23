@@ -26,6 +26,7 @@ const TemplateMenu = props => {
         })
     }
 
+    // if template is current, updates classname and gives diff style
     const checkSelected = template => {
         const { currentTemplate } = props.state
         if (template.id === currentTemplate.id) return ' selected'

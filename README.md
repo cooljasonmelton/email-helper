@@ -18,14 +18,9 @@
 ### To Do List (to get MVP)
 
 NEXT: 
-* function that opens email in new tab in order to send 
 * refactor and document edit template
 * refactor and document contacts 
 * search inputs work
 * current template gets highlight
 * better login and sign up 
 
-
-### STRETCH:
-* authentication
-* checkbox for bcc, cc on contacts resource

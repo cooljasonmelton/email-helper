@@ -9,8 +9,8 @@ import { Form, Input } from 'semantic-ui-react'
 
 const Login = props => {
   const [signUp, setSignUp] = useState(false)
-  const [email, setEmail] = useState('jason.melton2@gmail.com')
-  const [password, setPassword] = useState('jason')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
   const logUserIn = () => {
     const reqObj = {
@@ -33,6 +33,8 @@ const Login = props => {
     style={props.state.login.id ? 
             {display: "none"} 
               : {display: "block"}}> 
+
+        {/* LOGIN IN PUTS */}
         <Form>
           <Form.Group>
             <Form.Field
@@ -50,10 +52,14 @@ const Login = props => {
               onChange={e => setPassword(e.target.value)}
               value={password}
             />
+
+            {/* LOGIN BUTTON */}
             <Form.Button className='login-button'
               onClick={logUserIn}>
               Login
             </Form.Button>
+
+            {/* SIGN UP BUTTON */}
             <Form.Button className='login-button'
               onClick={() => setSignUp(!signUp)}>
               Sign Up

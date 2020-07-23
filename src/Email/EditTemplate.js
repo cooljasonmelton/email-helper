@@ -23,6 +23,7 @@ const EditTemplate = props => {
         setBody(templateData.body)
     });
 
+    // updates template in back end 
     const saveEditTemplate = () => {
         const { userData, templateData, login, currentTemplate } = props
         if (!templateData.id) return
@@ -50,7 +51,8 @@ const EditTemplate = props => {
     }
 
     return (
-        <>
+        <> 
+        {/* EDIT TEMPLATE FORM */}
             <Input placeholder="template name" 
                 value={name}
                 onChange={e => setName(e.target.value)}/>

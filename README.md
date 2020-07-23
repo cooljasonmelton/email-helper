@@ -52,8 +52,9 @@ jason.melton2@gmail.com
 ### To Do List 
 
 NEXT: 
-* refactor and document edit template
 * refactor and document contacts 
+* refactor and document edit template
+* refactor and set up sign in, sign out
 * search inputs work
 * current template gets highlight
 * better login and sign up 

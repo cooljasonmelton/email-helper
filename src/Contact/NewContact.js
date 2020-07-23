@@ -40,7 +40,8 @@ const NewContact = props => {
     };
 
     return (
-        <>
+        <> 
+            {/* NEW CONTACT FORM */}
             <div style={{width:"100%"}}>
                 <h3>add contact</h3>
                 <Input placeholder="contact name" 

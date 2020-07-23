@@ -24,9 +24,12 @@ const Contacts = props => {
     return 0;
   })
 
+
+  // adds / removes all contacts from store
   const selectAllContacts = () => {
     const { currentContacts } = props.state
     props.currentContacts({ contacts: contacts })
+
     // if all contacts selected, deselect all
     if (currentContacts.contacts.length === contacts.length) {
       props.currentContacts({ contacts: [] })

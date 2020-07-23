@@ -16,12 +16,18 @@ const EmailContainer = () => {
       <Grid style={{height: '100%'}} columns={3}>
         <Grid.Row stretched>
           <Grid.Column>
+
+            {/* template selection (left) */}
             <TemplateMenu/> 
           </Grid.Column>
           <Grid.Column>
+
+            {/* active template (middle) */}
             <Template/>
           </Grid.Column>
           <Grid.Column>
+            
+            {/* contacts selection (right) */}
             <Contacts/>
           </Grid.Column>
         </Grid.Row>

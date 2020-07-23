@@ -1,4 +1,4 @@
-<iframe src="https://giphy.com/embed/M9NgwYV8LyFpjPRyoG" width="480" height="268" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+<image src="https://giphy.com/embed/M9NgwYV8LyFpjPRyoG" width="480" height="268" frameBorder="0" class="giphy-embed" allowFullScreen></image>
 
 <a href="https://github.com/cooljasonmelton/email-automater-backend"> back end </a>
 

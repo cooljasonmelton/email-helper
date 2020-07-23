@@ -46,7 +46,7 @@ Jason Melton
 ## contact
 jason.melton2@gmail.com
 
-### To Do List 
-NEXT: 
+### coming soon
 * search inputs work
 * current template gets highlight
+* display error message when login fails

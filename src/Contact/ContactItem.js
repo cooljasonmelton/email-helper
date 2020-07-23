@@ -81,9 +81,13 @@ const ContactItem = props => {
             <>
                 <div className="contact-buttons">
                     {/* TOGGLE EDIT FORM */}
-                    <Icon className="edit-button" onClick={() => handleEditContact(contact)} name="edit"/>
+                    <Icon className="edit-button" 
+                        onClick={() => handleEditContact(contact)} 
+                        name="edit"/>
                     {/* DELETE CONTACT */}
-                    <Icon className="delete-button" onClick={() => handleUpdateContact(contact, "DELETE")} name="delete"/>
+                    <Icon className="delete-button" 
+                        onClick={() => handleUpdateContact(contact, "DELETE")} 
+                        name="delete"/>
                 </div>
                 <h3>{contact.name}</h3>
                 <p>{contact.email}</p>
@@ -91,9 +95,13 @@ const ContactItem = props => {
                 :   <> {/* EDIT FORM */}
                         <div className="contact-buttons">
                             {/* TOGGLE EDIT FORM */}
-                            <Icon className="edit-button" onClick={() => handleEditContact(contact)} name="edit"/>
+                            <Icon className="edit-button" 
+                                onClick={() => handleEditContact(contact)} 
+                                name="edit"/>
                             {/* DELETE CONTACT */}
-                            <Icon className="delete-button" onClick={() => handleUpdateContact(contact, "DELETE")} name="delete"/>
+                            <Icon className="delete-button" 
+                                onClick={() => handleUpdateContact(contact, "DELETE")} 
+                                name="delete"/>
                         </div>
                         <Divider/>
                         <div>

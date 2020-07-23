@@ -8,8 +8,8 @@ import './Navbar.css';
 import { Form, Input } from 'semantic-ui-react'
 
 const Login = props => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('jason.melton2@gmail.com')
+  const [password, setPassword] = useState('jason')
 
 
   // login returning user
@@ -24,7 +24,6 @@ const Login = props => {
     fetch('http://localhost:3000/login', reqObj)
     .then(r=>r.json())
     .then(userData=> {
-      console.log(userData)
       props.login(userData)
     })
   }
@@ -41,7 +40,6 @@ const Login = props => {
     fetch('http://localhost:3000/users', reqObj)
     .then(r=>r.json())
     .then(userData=> {
-      console.log(userData)
       props.login(userData)
     })
   }

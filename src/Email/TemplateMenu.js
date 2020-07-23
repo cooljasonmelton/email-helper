@@ -26,6 +26,12 @@ const TemplateMenu = props => {
         })
     }
 
+    const checkSelected = template => {
+        const { currentTemplate } = props.state
+        if (template.id === currentTemplate.id) return ' selected'
+        else return ""
+    }
+
     return (
         <Segment className="TemplateMenu email-item center-flex-box">
             <div className="template-menu-options">
@@ -45,7 +51,7 @@ const TemplateMenu = props => {
                 {/* Map thru store of user templates and display */}
                 {templates && sortTemplatesById().map(template => {
                     return (
-                        <Segment className="template-item" onClick={()=> props.currentTemplate(template)} key={template.id}>
+                        <Segment className={"template-item" + checkSelected(template)} onClick={()=> props.currentTemplate(template)} key={template.id}>
                             <Icon className="delete-button" onClick={() => handleDelete(template.id)} name="delete"/>
                             <h3>{template.name}</h3>
                             <h4>{template.subject}</h4>

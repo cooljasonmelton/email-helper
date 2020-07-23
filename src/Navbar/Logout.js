@@ -7,14 +7,23 @@ import { connect } from 'react-redux'
 import './Navbar.css';
 import { Button } from 'semantic-ui-react'
 
+
+
 const Logout = props => {
     const {login } = props.state
+
+    // changes user in store to "" removing all user info
+    const logoutUser = () => {
+        props.login({ id: "" })
+    }
+
     return (
-    <>
-        {login.id ?
-            <Button>Logout</Button>
-            : <div></div>}
-    </>
+        // toggles log out button based on login in store
+        <>
+            {login.id ?
+                <Button onClick={logoutUser}>Logout</Button>
+                : <div></div>}
+        </>
     )
 }
 

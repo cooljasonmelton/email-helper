@@ -12,7 +12,7 @@ const Title = () => {
   
   return (
     <Segment className="Title">
-      EMAIL AUTOMATOR
+      EMAIL HELPER
     </Segment>
   );
 }

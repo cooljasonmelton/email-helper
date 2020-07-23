@@ -10,6 +10,7 @@ import { Button, Icon } from 'semantic-ui-react';
 const SendEmailButton = props => {
     const { currentContacts, currentTemplate } = props.state
 
+    // maps current contacts in store and returns an array of email strings
     const emailArray = () => {
         return currentContacts.contacts.map(contact => contact.email)
     }
@@ -21,6 +22,7 @@ const SendEmailButton = props => {
     }
 
     return (
+        // button opens local client email including current contacts and template from store
         <Button animated onClick={sendEmail}>
             <Button.Content visible>Send</Button.Content>
             <Button.Content hidden>

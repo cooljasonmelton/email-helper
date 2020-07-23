@@ -15,6 +15,7 @@ const NewTemplate = props => {
     // saves new template to back end and resets userData in store
     const saveNewTemplate = () => {
         const {login, state} = props
+
         // in case no user is logged in
         if (!state.login.id) return
 
@@ -30,7 +31,6 @@ const NewTemplate = props => {
                 body 
             })
         }
-        
         fetch('http://localhost:3000/templates', reqObj)
         .then(r=>r.json())
         .then(userData=> {
@@ -41,6 +41,7 @@ const NewTemplate = props => {
 
     return (
         <>
+        {/* NEW TEMPLATE FORM */}
             <Input placeholder="template name" 
                 value={name}
                 onChange={e => setName(e.target.value)}/>

@@ -2,9 +2,6 @@
 
 <img src="https://github.com/cooljasonmelton/email-automater/blob/master/demo.gif"/>
 
-
-
-
 ## features
 * create, read, update, and delete email templates
 * create, read, update, and delete contacts
@@ -49,11 +46,6 @@ Jason Melton
 ## contact
 jason.melton2@gmail.com
 
-### To Do List 
-
-NEXT: 
-* refactor and document edit template
-* refactor and document contacts 
+### coming soon
 * search inputs work
-* current template gets highlight
-* better login and sign up 
+* display error message when login fails

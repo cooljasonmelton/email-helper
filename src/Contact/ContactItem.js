@@ -33,12 +33,14 @@ const ContactItem = props => {
         }
     }
 
+    // update state to reflect contact info of selected contact 
     const handleEditContact = contact => {
         setEditContact(!editContact)
         setName(contact.name)
         setEmail(contact.email)
     }
 
+    // deals with both delete and edit just changing the fetch req object
     const handleUpdateContact = (contact, method) => {
         let reqObj;
         if (method === "DELETE") reqObj = { method: method }
@@ -62,7 +64,7 @@ const ContactItem = props => {
         setEditContact(false)
     }
 
-    // check if item is in currentContacts store and if so add 'selected' classname
+    // check if each contact is in store and update classname
     const checkSelected = contactId => {
         const { contacts } = props.state.currentContacts
         if (contacts.filter(c => c.id === contactId).length > 0) return " selected"
@@ -72,24 +74,38 @@ const ContactItem = props => {
     return(
         // CONTACT SEGMENT 
         <Segment className={"contact-item" + checkSelected(contact.id)}  
+            // selects / deselects email contact and updates store 
             onClick={() => toggleSetCurrentContact(contact)}>
         
             {!editContact ?
             <>
                 <div className="contact-buttons">
-                    <Icon className="edit-button" onClick={() => handleEditContact(contact)} name="edit"/>
-                    <Icon className="delete-button" onClick={() => handleUpdateContact(contact, "DELETE")} name="delete"/>
+                    {/* TOGGLE EDIT FORM */}
+                    <Icon className="edit-button" 
+                        onClick={() => handleEditContact(contact)} 
+                        name="edit"/>
+                    {/* DELETE CONTACT */}
+                    <Icon className="delete-button" 
+                        onClick={() => handleUpdateContact(contact, "DELETE")} 
+                        name="delete"/>
                 </div>
                 <h3>{contact.name}</h3>
                 <p>{contact.email}</p>
             </>
                 :   <> {/* EDIT FORM */}
                         <div className="contact-buttons">
-                            <Icon className="edit-button" onClick={() => handleEditContact(contact)} name="edit"/>
-                            <Icon className="delete-button" onClick={() => handleUpdateContact(contact, "DELETE")} name="delete"/>
+                            {/* TOGGLE EDIT FORM */}
+                            <Icon className="edit-button" 
+                                onClick={() => handleEditContact(contact)} 
+                                name="edit"/>
+                            {/* DELETE CONTACT */}
+                            <Icon className="delete-button" 
+                                onClick={() => handleUpdateContact(contact, "DELETE")} 
+                                name="delete"/>
                         </div>
                         <Divider/>
                         <div>
+                            {/* EDIT FORM INPUTS */}
                             <Input className="widen" value={name} onChange={e => setName(e.target.value)} />
                             <Input className="widen" value={email} onChange={e => setEmail(e.target.value)} />
                             <Button className="widen" onClick={() => handleUpdateContact(contact, "PATCH")}>Save</Button>

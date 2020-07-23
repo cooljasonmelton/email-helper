@@ -14,10 +14,9 @@ const Navbar = () => {
   
   return (
     <Segment className="Navbar">
-      
+      {/*  */}
       <Title/>
       <Login/>
-
       <Logout/>
     </Segment>
   );

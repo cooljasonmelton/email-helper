@@ -7,8 +7,6 @@ import { connect } from 'react-redux'
 import './Navbar.css';
 import { Button } from 'semantic-ui-react'
 
-
-
 const Logout = props => {
     const {login } = props.state
 

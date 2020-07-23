@@ -8,8 +8,8 @@ import './Navbar.css';
 import { Form, Input } from 'semantic-ui-react'
 
 const Login = props => {
-  const [email, setEmail] = useState('jason.melton2@gmail.com')
-  const [password, setPassword] = useState('jason')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
 
   // login returning user

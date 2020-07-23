@@ -25,9 +25,9 @@ const Contacts = props => {
   })
 
   const selectAllContacts = () => {
-    // check how may contacts, if none, add all, empty array
     const { currentContacts } = props.state
     props.currentContacts({ contacts: contacts })
+    // if all contacts selected, deselect all
     if (currentContacts.contacts.length === contacts.length) {
       props.currentContacts({ contacts: [] })
     }

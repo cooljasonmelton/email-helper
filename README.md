@@ -18,7 +18,8 @@ Front end
 Back end 
 - Ruby on Rails RESTful API
 - Postgres Database
- <a href="https://github.com/cooljasonmelton/email-helper-backend"> see the back end </a>
+
+- <a href="https://github.com/cooljasonmelton/email-helper-backend"> see the back end </a>
 
 ## installation
 - open preferred directory and clone repo for front and back end:

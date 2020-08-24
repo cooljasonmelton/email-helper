@@ -1,6 +1,6 @@
 # Email Helper
 
-<img src="https://github.com/cooljasonmelton/email-automater/blob/master/demo.gif"/>
+<img width="100%" src="https://github.com/cooljasonmelton/email-automater/blob/master/demo.gif"/>
 
 ## features
 * create, read, update, and delete email templates
